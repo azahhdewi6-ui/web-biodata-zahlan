@@ -168,109 +168,127 @@
             </div>
 
             <!-- Right Column: Profile Information -->
-            <div class="lg:col-span-7 flex flex-col justify-center space-y-6">
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-5">
               
-              <!-- Name & Title -->
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="px-2.5 py-0.5 rounded-md bg-aesthetic-babyblue text-aesthetic-deepblue font-mono text-xs font-semibold">
-                    Profil Anggota 1
-                  </span>
-                  <span class="text-xs font-mono text-aesthetic-muted">• Rekayasa Perangkat Lunak</span>
-                </div>
-                <h3 class="text-3xl sm:text-4xl font-serif text-aesthetic-deepblue font-bold tracking-tight">
-                  Sri Wulandani
-                </h3>
-                <p class="text-sm font-mono text-aesthetic-muted mt-1">
-                  Panggilan: <span class="text-aesthetic-blue font-semibold">Wulan / Sri</span>
-                </p>
-              </div>
-
-              <!-- Motto Hidup (Quote Card) -->
-              <div class="p-5 rounded-2xl bg-cream-50/90 border border-aesthetic-warmtext/10 relative shadow-sm">
-                <i class="fa-solid fa-quote-left text-aesthetic-softblue/30 text-3xl absolute top-3 left-3 -z-0"></i>
-                <div class="relative z-10 pl-6">
-                  <p class="text-xs font-mono uppercase tracking-wider text-aesthetic-blue font-semibold mb-1">Motto Hidup</p>
-                  <blockquote class="text-lg sm:text-xl font-serif italic text-aesthetic-deepblue leading-snug">
-                    “Tumbuhlah menjadi sesuatu yang kau inginkan.”
-                  </blockquote>
-                  <div class="mt-3 flex items-center justify-between">
-                    <span class="text-xs text-aesthetic-muted font-mono">— Sri Wulandani</span>
-                    <button onclick="copyText('Tumbuhlah menjadi sesuatu yang kau inginkan.', 'Motto Sri Wulandani')" class="text-xs font-mono text-aesthetic-blue hover:text-aesthetic-deepblue flex items-center gap-1 transition-colors">
-                      <i class="fa-regular fa-copy"></i> Salin Motto
-                    </button>
+              <!-- Name & Title with Edit Button -->
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2 border-b border-aesthetic-warmtext/10">
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="px-2.5 py-0.5 rounded-md bg-aesthetic-babyblue text-aesthetic-deepblue font-mono text-xs font-semibold">
+                      Profil Anggota 1
+                    </span>
+                    <span class="text-xs font-mono text-aesthetic-muted">• Rekayasa Perangkat Lunak</span>
                   </div>
+                  <h3 id="sri-display-name" class="text-3xl sm:text-4xl font-serif text-aesthetic-deepblue font-bold tracking-tight">
+                    Sri Wulandani
+                  </h3>
                 </div>
-              </div>
-
-              <!-- Info Cards: Hobi & Cita-Cita -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
-                <!-- Hobi Card -->
-                <div class="p-4 rounded-2xl bg-white border border-aesthetic-warmtext/10 hover:border-aesthetic-softblue/50 transition-all duration-300 hover:shadow-md group">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="w-9 h-9 rounded-xl bg-aesthetic-babyblue text-aesthetic-blue flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <i class="fa-solid fa-book-journal-whills text-lg"></i>
-                    </div>
-                    <div>
-                      <p class="text-xs font-mono text-aesthetic-muted uppercase">Hobi Utama</p>
-                      <h4 class="font-sans font-bold text-aesthetic-deepblue text-base">Journaling</h4>
-                    </div>
-                  </div>
-                  <p class="text-xs text-aesthetic-muted leading-relaxed">
-                    Mencatat refleksi, menuangkan ide kreatif, menata rencana, dan mengabadikan momen keseharian dalam buku catatan estetis.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">✨ Aesthetic Notes</span>
-                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">📝 Mindful</span>
-                  </div>
-                </div>
-
-                <!-- Cita-Cita Card -->
-                <div class="p-4 rounded-2xl bg-white border border-aesthetic-warmtext/10 hover:border-amber-300 transition-all duration-300 hover:shadow-md group">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <i class="fa-solid fa-masks-theater text-lg"></i>
-                    </div>
-                    <div>
-                      <p class="text-xs font-mono text-aesthetic-muted uppercase">Cita-Cita</p>
-                      <h4 class="font-sans font-bold text-aesthetic-deepblue text-base">Aktor (Actress)</h4>
-                    </div>
-                  </div>
-                  <p class="text-xs text-aesthetic-muted leading-relaxed">
-                    Bermimpi mengekspresikan beragam karakter, seni peran di panggung dan layar sinema, serta menginspirasi banyak penonton melalui karya.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🎬 Peran & Teater</span>
-                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🌟 Sinema</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Aesthetic Vibe / Moodboard Card -->
-              <div class="p-3.5 rounded-2xl bg-cream-50/80 border border-aesthetic-warmtext/10 flex items-center gap-3.5">
-                <img src="assets/1782451684253425.jpg" alt="Aesthetic Blueprint" class="w-12 h-12 rounded-xl object-cover ring-1 ring-aesthetic-softblue/30 shadow-xs cursor-pointer hover:scale-105 transition-transform" onclick="openPhotoModal('assets/1782451684253425.jpg', 'Summer Flows 0.02 - Wave to Earth Moodboard')">
-                <div class="flex-1">
-                  <p class="text-[10px] font-mono text-aesthetic-muted uppercase tracking-wider">Aesthetic Moodboard</p>
-                  <p class="text-xs font-sans text-aesthetic-deepblue font-medium">Summer Flows 0.02 • Vintage Blue Ink & Creative Journaling</p>
-                </div>
-                <span class="text-[10px] font-mono px-2 py-1 rounded-md bg-aesthetic-babyblue/60 text-aesthetic-blue">Wave To Earth Vibe</span>
-              </div>
-
-              <!-- Social Media & Contact -->
-              <div class="pt-2 flex flex-wrap items-center gap-3">
-                <span class="text-xs font-mono text-aesthetic-muted">Hubungi Sri:</span>
-                
-                <a href="https://instagram.com/sriwulandnii" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-amber-500/10 hover:from-pink-500/20 hover:to-amber-500/20 border border-pink-300/40 text-aesthetic-deepblue text-xs font-mono font-semibold transition-all hover:scale-105 shadow-xs">
-                  <i class="fa-brands fa-instagram text-pink-600 text-sm"></i>
-                  <span>@sriwulandnii</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-60"></i>
-                </a>
-
-                <button onclick="copyText('sriwulandnii', 'Username Instagram Sri')" class="px-3 py-2 rounded-xl bg-cream-50 hover:bg-cream-200 border border-aesthetic-warmtext/10 text-aesthetic-muted hover:text-aesthetic-deepblue text-xs font-mono transition-colors" title="Salin Username">
-                  <i class="fa-regular fa-copy"></i>
+                <button onclick="openEditModal('sri')" class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-aesthetic-deepblue hover:bg-aesthetic-blue text-cream-100 text-xs font-mono font-medium shadow-sm transition-all hover:scale-105 active:scale-95" title="Isi atau Edit Biodata Sri">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                  <span>Isi / Edit Biodata</span>
                 </button>
+              </div>
+
+              <!-- ================= 9 URUTAN BIODATA UTAMA ================= -->
+              <div class="bg-cream-50/80 border border-aesthetic-warmtext/10 rounded-2xl p-4 sm:p-5 shadow-xs space-y-2.5 text-xs">
+                
+                <!-- 1. Nama Lengkap -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-regular fa-id-card text-aesthetic-blue"></i> 1. Nama Lengkap
+                  </span>
+                  <span id="sri-val-nama" class="font-bold text-aesthetic-deepblue sm:text-right text-sm">Sri Wulandani</span>
+                </div>
+
+                <!-- 2. Nama Panggilan -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-regular fa-user text-aesthetic-blue"></i> 2. Nama Panggilan
+                  </span>
+                  <span id="sri-val-panggilan" class="font-semibold text-aesthetic-blue sm:text-right">Wulan / Sri</span>
+                </div>
+
+                <!-- 3. Tempat, Tanggal Lahir -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-regular fa-calendar-days text-aesthetic-blue"></i> 3. Tempat, Tgl Lahir
+                  </span>
+                  <span id="sri-val-ttl" class="font-medium text-slate-700 sm:text-right italic">[Belum diisi - Klik tombol Edit]</span>
+                </div>
+
+                <!-- 4. Alamat -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-location-dot text-aesthetic-blue"></i> 4. Alamat
+                  </span>
+                  <span id="sri-val-alamat" class="font-medium text-slate-700 sm:text-right italic">[Belum diisi - Klik tombol Edit]</span>
+                </div>
+
+                <!-- 5. Pendidikan (SD, SMP, SMK) -->
+                <div class="pb-2 border-b border-aesthetic-warmtext/10 space-y-1.5">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-aesthetic-blue"></i> 5. Riwayat Pendidikan
+                  </span>
+                  <div class="pl-6 space-y-1 text-xs">
+                    <div class="flex flex-col sm:flex-row sm:justify-between"><span class="text-aesthetic-muted font-mono">• SD:</span> <span id="sri-val-sd" class="font-medium text-slate-700 italic">[Belum diisi]</span></div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between"><span class="text-aesthetic-muted font-mono">• SMP:</span> <span id="sri-val-smp" class="font-medium text-slate-700 italic">[Belum diisi]</span></div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between"><span class="text-aesthetic-muted font-mono">• SMK:</span> <span id="sri-val-smk" class="font-medium text-slate-700 italic">[Belum diisi]</span></div>
+                  </div>
+                </div>
+
+                <!-- 6. Jurusan -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-laptop-code text-aesthetic-blue"></i> 6. Jurusan
+                  </span>
+                  <span id="sri-val-jurusan" class="font-bold text-aesthetic-deepblue sm:text-right">Rekayasa Perangkat Lunak (RPL)</span>
+                </div>
+
+                <!-- 7. Kelas -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-chalkboard-user text-aesthetic-blue"></i> 7. Kelas
+                  </span>
+                  <span id="sri-val-kelas" class="font-medium text-slate-700 sm:text-right italic">[Belum diisi - Klik tombol Edit]</span>
+                </div>
+
+                <!-- 8. Cita-Cita -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-star text-amber-500"></i> 8. Cita-Cita
+                  </span>
+                  <span id="sri-val-citacita" class="font-bold text-amber-700 sm:text-right">Aktor (Actress)</span>
+                </div>
+
+                <!-- 9. Moto Hidup -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-0.5">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-quote-left text-aesthetic-softblue"></i> 9. Moto Hidup
+                  </span>
+                  <span id="sri-val-moto" class="font-serif italic text-aesthetic-deepblue sm:text-right text-sm">“Tumbuhlah menjadi sesuatu yang kau inginkan.”</span>
+                </div>
+
+              </div>
+
+              <!-- Hobi & Social Media Info -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono text-aesthetic-muted">Hobi:</span>
+                  <span id="sri-val-hobi" class="px-2.5 py-1 rounded-md bg-aesthetic-babyblue/60 text-aesthetic-deepblue font-mono text-xs font-semibold">
+                    <i class="fa-solid fa-book-journal-whills mr-1"></i> Journaling
+                  </span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <a href="https://instagram.com/sriwulandnii" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-50 hover:bg-pink-100 border border-pink-200 text-pink-700 text-xs font-mono font-semibold transition-all">
+                    <i class="fa-brands fa-instagram text-pink-600"></i>
+                    <span>@sriwulandnii</span>
+                  </a>
+                  <button onclick="copyFullBio('sri')" class="px-3 py-1.5 rounded-xl bg-cream-50 hover:bg-cream-200 border border-aesthetic-warmtext/10 text-aesthetic-deepblue text-xs font-mono transition-colors" title="Salin Biodata Lengkap">
+                    <i class="fa-regular fa-copy mr-1"></i> Salin Bio
+                  </button>
+                </div>
               </div>
 
             </div>
@@ -317,117 +335,131 @@
             </div>
 
             <!-- Right Column: Profile Information -->
-            <div class="lg:col-span-7 flex flex-col justify-center space-y-6">
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-5">
               
-              <!-- Name & Title -->
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 font-mono text-xs font-semibold">
-                    Profil Anggota 2
-                  </span>
-                  <span class="text-xs font-mono text-aesthetic-muted">• Rekayasa Perangkat Lunak</span>
-                </div>
-                <h3 class="text-3xl sm:text-4xl font-serif text-aesthetic-deepblue font-bold tracking-tight">
-                  Dewi Azah Hapsoh
-                </h3>
-                <p class="text-sm font-mono text-aesthetic-muted mt-1">
-                  Panggilan: <span class="text-aesthetic-blue font-semibold">Azah / Dewi</span>
-                </p>
-              </div>
-
-              <!-- Motto Hidup (Quote Card) -->
-              <div class="p-5 rounded-2xl bg-cream-50/90 border border-aesthetic-warmtext/10 relative shadow-sm">
-                <i class="fa-solid fa-quote-left text-aesthetic-softblue/30 text-3xl absolute top-3 left-3 -z-0"></i>
-                <div class="relative z-10 pl-6">
-                  <p class="text-xs font-mono uppercase tracking-wider text-aesthetic-blue font-semibold mb-1">Motto Hidup</p>
-                  <blockquote class="text-lg sm:text-xl font-serif italic text-aesthetic-deepblue leading-snug">
-                    “Jadikan kegagalan sebagai pelajaran, bukan alasan untuk berhenti.”
-                  </blockquote>
-                  <div class="mt-3 flex items-center justify-between">
-                    <span class="text-xs text-aesthetic-muted font-mono">— Dewi Azah Hapsoh</span>
-                    <button onclick="copyText('Jadikan kegagalan sebagai pelajaran, bukan alasan untuk berhenti.', 'Motto Dewi Azah')" class="text-xs font-mono text-aesthetic-blue hover:text-aesthetic-deepblue flex items-center gap-1 transition-colors">
-                      <i class="fa-regular fa-copy"></i> Salin Motto
-                    </button>
+              <!-- Name & Title with Edit Button -->
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2 border-b border-aesthetic-warmtext/10">
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 font-mono text-xs font-semibold">
+                      Profil Anggota 2
+                    </span>
+                    <span class="text-xs font-mono text-aesthetic-muted">• Rekayasa Perangkat Lunak</span>
                   </div>
+                  <h3 id="dewi-display-name" class="text-3xl sm:text-4xl font-serif text-aesthetic-deepblue font-bold tracking-tight">
+                    Dewi Azah Hapsoh
+                  </h3>
                 </div>
-              </div>
-
-              <!-- Info Cards: Hobi & Cita-Cita -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
-                <!-- Hobi Card -->
-                <div class="p-4 rounded-2xl bg-white border border-aesthetic-warmtext/10 hover:border-aesthetic-softblue/50 transition-all duration-300 hover:shadow-md group">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="w-9 h-9 rounded-xl bg-aesthetic-babyblue text-aesthetic-blue flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <i class="fa-solid fa-music text-lg"></i>
-                    </div>
-                    <div>
-                      <p class="text-xs font-mono text-aesthetic-muted uppercase">Hobi Utama</p>
-                      <h4 class="font-sans font-bold text-aesthetic-deepblue text-base">Musik & Menyanyi</h4>
-                    </div>
-                  </div>
-                  <p class="text-xs text-aesthetic-muted leading-relaxed">
-                    Sangat menyukai alunan musik merdu, mendengarkan lagu-lagu tenang ala Wave to Earth, dan bernyanyi dengan penuh penghayatan jiwa.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🎵 Vokal & Harmoni</span>
-                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🎧 Wave to Earth</span>
-                  </div>
-                </div>
-
-                <!-- Cita-Cita Card -->
-                <div class="p-4 rounded-2xl bg-white border border-aesthetic-warmtext/10 hover:border-rose-300 transition-all duration-300 hover:shadow-md group">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <i class="fa-solid fa-user-nurse text-lg"></i>
-                    </div>
-                    <div>
-                      <p class="text-xs font-mono text-aesthetic-muted uppercase">Cita-Cita</p>
-                      <h4 class="font-sans font-bold text-aesthetic-deepblue text-base">Perawat (Nurse)</h4>
-                    </div>
-                  </div>
-                  <p class="text-xs text-aesthetic-muted leading-relaxed">
-                    Bercita-cita mulia merawat dan menolong sesama dengan ketulusan hati, empati tinggi, serta dedikasi di bidang kesehatan medis.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🩺 Caregiver</span>
-                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🤍 Jiwa Kemanusiaan</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Aesthetic Music Inspiration Card -->
-              <div class="p-3.5 rounded-2xl bg-cream-50/80 border border-aesthetic-warmtext/10 flex items-center gap-3.5">
-                <img src="assets/th144.jpg" alt="Wave to Earth Art" class="w-12 h-12 rounded-xl object-cover ring-1 ring-aesthetic-softblue/30 shadow-xs cursor-pointer hover:scale-105 transition-transform" onclick="openPhotoModal('assets/th144.jpg', 'Wave to Earth - Bad Poster Art')">
-                <div class="flex-1">
-                  <p class="text-[10px] font-mono text-aesthetic-muted uppercase tracking-wider">Lagu Favorit On Repeat</p>
-                  <p class="text-xs font-sans text-aesthetic-deepblue font-medium">Wave to Earth — “Bad” & “Seasons”</p>
-                </div>
-                <span class="text-[10px] font-mono px-2 py-1 rounded-md bg-amber-100 text-amber-800">Indie Vintage</span>
-              </div>
-
-              <!-- Social Media & Contact -->
-              <div class="pt-2 flex flex-wrap items-center gap-3">
-                <span class="text-xs font-mono text-aesthetic-muted">Hubungi Dewi:</span>
-                
-                <!-- Instagram -->
-                <a href="https://instagram.com/azahh-ajaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500/10 to-purple-500/10 hover:from-pink-500/20 hover:to-purple-500/20 border border-pink-300/40 text-aesthetic-deepblue text-xs font-mono font-semibold transition-all hover:scale-105 shadow-xs">
-                  <i class="fa-brands fa-instagram text-pink-600 text-sm"></i>
-                  <span>@azahh-ajaa</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-60"></i>
-                </a>
-
-                <!-- TikTok -->
-                <a href="https://tiktok.com/@azahhe_06" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-aesthetic-deepblue/5 hover:bg-aesthetic-deepblue/10 border border-aesthetic-deepblue/20 text-aesthetic-deepblue text-xs font-mono font-semibold transition-all hover:scale-105 shadow-xs">
-                  <i class="fa-brands fa-tiktok text-black text-sm"></i>
-                  <span>@azahhe_06</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-60"></i>
-                </a>
-
-                <button onclick="copyText('azahh-ajaa', 'Instagram Dewi')" class="px-3 py-2 rounded-xl bg-cream-50 hover:bg-cream-200 border border-aesthetic-warmtext/10 text-aesthetic-muted hover:text-aesthetic-deepblue text-xs font-mono transition-colors" title="Salin Username">
-                  <i class="fa-regular fa-copy"></i>
+                <button onclick="openEditModal('dewi')" class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-aesthetic-deepblue hover:bg-aesthetic-blue text-cream-100 text-xs font-mono font-medium shadow-sm transition-all hover:scale-105 active:scale-95" title="Isi atau Edit Biodata Dewi">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                  <span>Isi / Edit Biodata</span>
                 </button>
+              </div>
+
+              <!-- ================= 9 URUTAN BIODATA UTAMA ================= -->
+              <div class="bg-cream-50/80 border border-aesthetic-warmtext/10 rounded-2xl p-4 sm:p-5 shadow-xs space-y-2.5 text-xs">
+                
+                <!-- 1. Nama Lengkap -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-regular fa-id-card text-aesthetic-blue"></i> 1. Nama Lengkap
+                  </span>
+                  <span id="dewi-val-nama" class="font-bold text-aesthetic-deepblue sm:text-right text-sm">Dewi Azah Hapsoh</span>
+                </div>
+
+                <!-- 2. Nama Panggilan -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-regular fa-user text-aesthetic-blue"></i> 2. Nama Panggilan
+                  </span>
+                  <span id="dewi-val-panggilan" class="font-semibold text-aesthetic-blue sm:text-right">Azah / Dewi</span>
+                </div>
+
+                <!-- 3. Tempat, Tanggal Lahir -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-regular fa-calendar-days text-aesthetic-blue"></i> 3. Tempat, Tgl Lahir
+                  </span>
+                  <span id="dewi-val-ttl" class="font-medium text-slate-700 sm:text-right italic">[Belum diisi - Klik tombol Edit]</span>
+                </div>
+
+                <!-- 4. Alamat -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-location-dot text-aesthetic-blue"></i> 4. Alamat
+                  </span>
+                  <span id="dewi-val-alamat" class="font-medium text-slate-700 sm:text-right italic">[Belum diisi - Klik tombol Edit]</span>
+                </div>
+
+                <!-- 5. Pendidikan (SD, SMP, SMK) -->
+                <div class="pb-2 border-b border-aesthetic-warmtext/10 space-y-1.5">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-aesthetic-blue"></i> 5. Riwayat Pendidikan
+                  </span>
+                  <div class="pl-6 space-y-1 text-xs">
+                    <div class="flex flex-col sm:flex-row sm:justify-between"><span class="text-aesthetic-muted font-mono">• SD:</span> <span id="dewi-val-sd" class="font-medium text-slate-700 italic">[Belum diisi]</span></div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between"><span class="text-aesthetic-muted font-mono">• SMP:</span> <span id="dewi-val-smp" class="font-medium text-slate-700 italic">[Belum diisi]</span></div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between"><span class="text-aesthetic-muted font-mono">• SMK:</span> <span id="dewi-val-smk" class="font-medium text-slate-700 italic">[Belum diisi]</span></div>
+                  </div>
+                </div>
+
+                <!-- 6. Jurusan -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-laptop-code text-aesthetic-blue"></i> 6. Jurusan
+                  </span>
+                  <span id="dewi-val-jurusan" class="font-bold text-aesthetic-deepblue sm:text-right">Rekayasa Perangkat Lunak (RPL)</span>
+                </div>
+
+                <!-- 7. Kelas -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-chalkboard-user text-aesthetic-blue"></i> 7. Kelas
+                  </span>
+                  <span id="dewi-val-kelas" class="font-medium text-slate-700 sm:text-right italic">[Belum diisi - Klik tombol Edit]</span>
+                </div>
+
+                <!-- 8. Cita-Cita -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-aesthetic-warmtext/10 gap-1">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-star text-rose-500"></i> 8. Cita-Cita
+                  </span>
+                  <span id="dewi-val-citacita" class="font-bold text-rose-700 sm:text-right">Perawat (Nurse)</span>
+                </div>
+
+                <!-- 9. Moto Hidup -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-0.5">
+                  <span class="font-mono text-aesthetic-muted font-semibold flex items-center gap-2 min-w-[160px]">
+                    <i class="fa-solid fa-quote-left text-aesthetic-softblue"></i> 9. Moto Hidup
+                  </span>
+                  <span id="dewi-val-moto" class="font-serif italic text-aesthetic-deepblue sm:text-right text-sm">“Jadikan kegagalan sebagai pelajaran, bukan alasan untuk berhenti.”</span>
+                </div>
+
+              </div>
+
+              <!-- Hobi & Social Media Info -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono text-aesthetic-muted">Hobi:</span>
+                  <span id="dewi-val-hobi" class="px-2.5 py-1 rounded-md bg-amber-100/70 text-amber-900 font-mono text-xs font-semibold">
+                    <i class="fa-solid fa-music mr-1"></i> Musik & Menyanyi
+                  </span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <a href="https://instagram.com/azahh-ajaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-50 hover:bg-pink-100 border border-pink-200 text-pink-700 text-xs font-mono font-semibold transition-all">
+                    <i class="fa-brands fa-instagram text-pink-600"></i>
+                    <span>@azahh-ajaa</span>
+                  </a>
+                  <a href="https://tiktok.com/@azahhe_06" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 text-xs font-mono font-semibold transition-all">
+                    <i class="fa-brands fa-tiktok text-black"></i>
+                    <span>@azahhe_06</span>
+                  </a>
+                  <button onclick="copyFullBio('dewi')" class="px-3 py-1.5 rounded-xl bg-cream-50 hover:bg-cream-200 border border-aesthetic-warmtext/10 text-aesthetic-deepblue text-xs font-mono transition-colors" title="Salin Biodata Lengkap">
+                    <i class="fa-regular fa-copy mr-1"></i> Salin Bio
+                  </button>
+                </div>
               </div>
 
             </div>
@@ -493,6 +525,106 @@
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Modal for Editing Biodata -->
+  <div id="editModal" class="fixed inset-0 z-50 bg-aesthetic-deepblue/80 backdrop-blur-md hidden items-center justify-center p-4 transition-all opacity-0" onclick="closeEditModal()">
+    <div class="relative max-w-lg w-full bg-cream-50 rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/30 transform scale-95 transition-transform max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-4 mb-4 border-b border-aesthetic-warmtext/10">
+        <div>
+          <span class="text-[11px] font-mono text-aesthetic-blue uppercase font-semibold">Form Pengisian Mandiri</span>
+          <h3 id="editModalTitle" class="font-serif text-2xl font-bold text-aesthetic-deepblue">Edit Biodata</h3>
+        </div>
+        <button onclick="closeEditModal()" class="w-8 h-8 rounded-full bg-cream-200 hover:bg-cream-300 text-aesthetic-warmtext flex items-center justify-center text-sm transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Edit Form with 9 fields in order -->
+      <form id="editForm" onsubmit="saveEditedBio(event)" class="space-y-3.5 text-xs font-sans">
+        <input type="hidden" id="edit-target" value="sri">
+
+        <!-- 1. Nama Lengkap -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">1. Nama Lengkap</label>
+          <input type="text" id="input-nama" class="w-full px-3.5 py-2.5 rounded-xl border border-aesthetic-warmtext/20 bg-white focus:outline-none focus:ring-2 focus:ring-aesthetic-blue text-xs text-slate-800" required>
+        </div>
+
+        <!-- 2. Nama Panggilan -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">2. Nama Panggilan</label>
+          <input type="text" id="input-panggilan" class="w-full px-3.5 py-2.5 rounded-xl border border-aesthetic-warmtext/20 bg-white focus:outline-none focus:ring-2 focus:ring-aesthetic-blue text-xs text-slate-800" required>
+        </div>
+
+        <!-- 3. Tempat, Tanggal Lahir -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">3. Tempat, Tanggal Lahir</label>
+          <input type="text" id="input-ttl" placeholder="Contoh: Bandung, 15 Mei 2008" class="w-full px-3.5 py-2.5 rounded-xl border border-aesthetic-warmtext/20 bg-white focus:outline-none focus:ring-2 focus:ring-aesthetic-blue text-xs text-slate-800">
+        </div>
+
+        <!-- 4. Alamat -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">4. Alamat</label>
+          <textarea id="input-alamat" rows="2" placeholder="Contoh: Jl. Kenanga No. 12" class="w-full px-3.5 py-2.5 rounded-xl border border-aesthetic-warmtext/20 bg-white focus:outline-none focus:ring-2 focus:ring-aesthetic-blue text-xs text-slate-800"></textarea>
+        </div>
+
+        <!-- 5. Pendidikan (SD, SMP, SMK) -->
+        <div class="p-3 bg-white rounded-xl border border-aesthetic-warmtext/10 space-y-2">
+          <label class="block font-mono text-aesthetic-deepblue font-semibold">5. Riwayat Pendidikan</label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div>
+              <span class="text-[11px] text-aesthetic-muted font-mono">SD:</span>
+              <input type="text" id="input-sd" placeholder="Nama SD" class="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs">
+            </div>
+            <div>
+              <span class="text-[11px] text-aesthetic-muted font-mono">SMP:</span>
+              <input type="text" id="input-smp" placeholder="Nama SMP" class="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs">
+            </div>
+            <div>
+              <span class="text-[11px] text-aesthetic-muted font-mono">SMK:</span>
+              <input type="text" id="input-smk" placeholder="Nama SMK" class="w-full px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs">
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Jurusan -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">6. Jurusan</label>
+          <input type="text" id="input-jurusan" class="w-full px-3.5 py-2.5 rounded-xl border border-aesthetic-warmtext/20 bg-white focus:outline-none focus:ring-2 focus:ring-aesthetic-blue text-xs text-slate-800">
+        </div>
+
+        <!-- 7. Kelas -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">7. Kelas</label>
+          <input type="text" id="input-kelas" placeholder="Contoh: XI RPL 1" class="w-full px-3.5 py-2.5 rounded-xl border border-aesthetic-warmtext/20 bg-white focus:outline-none focus:ring-2 focus:ring-aesthetic-blue text-xs text-slate-800">
+        </div>
+
+        <!-- 8. Cita-Cita -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">8. Cita-Cita</label>
+          <input type="text" id="input-citacita" class="w-full px-3.5 py-2.5 rounded-xl border border-aesthetic-warmtext/20 bg-white focus:outline-none focus:ring-2 focus:ring-aesthetic-blue text-xs text-slate-800">
+        </div>
+
+        <!-- 9. Moto Hidup -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">9. Moto Hidup</label>
+          <textarea id="input-moto" rows="2" class="w-full px-3.5 py-2.5 rounded-xl border border-aesthetic-warmtext/20 bg-white focus:outline-none focus:ring-2 focus:ring-aesthetic-blue text-xs text-slate-800"></textarea>
+        </div>
+
+        <!-- Submit & Cancel Buttons -->
+        <div class="flex items-center justify-end gap-2.5 pt-3 border-t border-aesthetic-warmtext/10">
+          <button type="button" onclick="closeEditModal()" class="px-4 py-2 rounded-xl bg-cream-200 hover:bg-cream-300 text-aesthetic-warmtext font-mono text-xs transition-colors">
+            Batal
+          </button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-aesthetic-deepblue hover:bg-aesthetic-blue text-white font-mono font-medium text-xs shadow-md transition-all">
+            <i class="fa-solid fa-floppy-disk mr-1"></i> Simpan Perubahan
+          </button>
+        </div>
+      </form>
+
     </div>
   </div>
 

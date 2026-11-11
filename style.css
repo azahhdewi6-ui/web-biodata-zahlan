@@ -55,12 +55,12 @@ body {
 }
 
 /* Modal Open / Close Transition */
-#photoModal.show {
+#photoModal.show, #editModal.show {
   display: flex !important;
   opacity: 1 !important;
 }
 
-#photoModal.show > div {
+#photoModal.show > div, #editModal.show > div {
   transform: scale(1) !important;
 }
 

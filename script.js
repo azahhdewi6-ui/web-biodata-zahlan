@@ -148,6 +148,179 @@ function copyText(text, label) {
 }
 
 // ===================================================
+// Interactive Biodata Management (LocalStorage & Edit Modal)
+// ===================================================
+const defaultBios = {
+  sri: {
+    nama: 'Sri Wulandani',
+    panggilan: 'Wulan / Sri',
+    ttl: '',
+    alamat: '',
+    sd: '',
+    smp: '',
+    smk: '',
+    jurusan: 'Rekayasa Perangkat Lunak (RPL)',
+    kelas: '',
+    citacita: 'Aktor (Actress)',
+    moto: '“Tumbuhlah menjadi sesuatu yang kau inginkan.”',
+    hobi: 'Journaling'
+  },
+  dewi: {
+    nama: 'Dewi Azah Hapsoh',
+    panggilan: 'Azah / Dewi',
+    ttl: '',
+    alamat: '',
+    sd: '',
+    smp: '',
+    smk: '',
+    jurusan: 'Rekayasa Perangkat Lunak (RPL)',
+    kelas: '',
+    citacita: 'Perawat (Nurse)',
+    moto: '“Jadikan kegagalan sebagai pelajaran, bukan alasan untuk berhenti.”',
+    hobi: 'Musik & Menyanyi'
+  }
+};
+
+function getBio(target) {
+  try {
+    const saved = localStorage.getItem('biodata_' + target);
+    if (saved) {
+      return { ...defaultBios[target], ...JSON.parse(saved) };
+    }
+  } catch (e) {}
+  return defaultBios[target];
+}
+
+function saveBio(target, data) {
+  try {
+    localStorage.setItem('biodata_' + target, JSON.stringify(data));
+  } catch (e) {}
+  renderBio(target);
+}
+
+function renderBio(target) {
+  const data = getBio(target);
+
+  const setEl = (id, val, fallback) => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (val && val.trim() !== '') {
+        el.innerText = val;
+        el.classList.remove('italic', 'text-slate-500');
+        el.classList.add('text-slate-800');
+      } else {
+        el.innerText = fallback || '[Belum diisi - Klik tombol Edit]';
+        el.classList.add('italic', 'text-slate-500');
+        el.classList.remove('text-slate-800');
+      }
+    }
+  };
+
+  const displayName = document.getElementById(`${target}-display-name`);
+  if (displayName) displayName.innerText = data.nama;
+
+  setEl(`${target}-val-nama`, data.nama, data.nama);
+  setEl(`${target}-val-panggilan`, data.panggilan, data.panggilan);
+  setEl(`${target}-val-ttl`, data.ttl, '[Belum diisi - Klik tombol Edit]');
+  setEl(`${target}-val-alamat`, data.alamat, '[Belum diisi - Klik tombol Edit]');
+  setEl(`${target}-val-sd`, data.sd, '[Belum diisi]');
+  setEl(`${target}-val-smp`, data.smp, '[Belum diisi]');
+  setEl(`${target}-val-smk`, data.smk, '[Belum diisi]');
+  setEl(`${target}-val-jurusan`, data.jurusan, 'Rekayasa Perangkat Lunak (RPL)');
+  setEl(`${target}-val-kelas`, data.kelas, '[Belum diisi - Klik tombol Edit]');
+  setEl(`${target}-val-citacita`, data.citacita, data.citacita);
+  setEl(`${target}-val-moto`, data.moto, data.moto);
+}
+
+// Open Edit Modal
+function openEditModal(target) {
+  const modal = document.getElementById('editModal');
+  const title = document.getElementById('editModalTitle');
+  const editTarget = document.getElementById('edit-target');
+
+  const data = getBio(target);
+  editTarget.value = target;
+  title.innerText = `Edit Biodata ${target === 'sri' ? 'Sri Wulandani' : 'Dewi Azah'}`;
+
+  document.getElementById('input-nama').value = data.nama || '';
+  document.getElementById('input-panggilan').value = data.panggilan || '';
+  document.getElementById('input-ttl').value = data.ttl || '';
+  document.getElementById('input-alamat').value = data.alamat || '';
+  document.getElementById('input-sd').value = data.sd || '';
+  document.getElementById('input-smp').value = data.smp || '';
+  document.getElementById('input-smk').value = data.smk || '';
+  document.getElementById('input-jurusan').value = data.jurusan || '';
+  document.getElementById('input-kelas').value = data.kelas || '';
+  document.getElementById('input-citacita').value = data.citacita || '';
+  document.getElementById('input-moto').value = data.moto || '';
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  setTimeout(() => {
+    modal.classList.add('show');
+  }, 10);
+}
+
+function closeEditModal() {
+  const modal = document.getElementById('editModal');
+  if (!modal) return;
+  modal.classList.remove('show');
+  setTimeout(() => {
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  }, 300);
+}
+
+function saveEditedBio(e) {
+  e.preventDefault();
+  const target = document.getElementById('edit-target').value;
+  const current = getBio(target);
+
+  const updated = {
+    ...current,
+    nama: document.getElementById('input-nama').value,
+    panggilan: document.getElementById('input-panggilan').value,
+    ttl: document.getElementById('input-ttl').value,
+    alamat: document.getElementById('input-alamat').value,
+    sd: document.getElementById('input-sd').value,
+    smp: document.getElementById('input-smp').value,
+    smk: document.getElementById('input-smk').value,
+    jurusan: document.getElementById('input-jurusan').value,
+    kelas: document.getElementById('input-kelas').value,
+    citacita: document.getElementById('input-citacita').value,
+    moto: document.getElementById('input-moto').value
+  };
+
+  saveBio(target, updated);
+  closeEditModal();
+  copyText('', 'Biodata berhasil disimpan');
+}
+
+// Copy full formatted 9-item text bio to clipboard
+function copyFullBio(target) {
+  const b = getBio(target);
+  const text = `BIODATA DIRI
+1. Nama Lengkap: ${b.nama}
+2. Nama Panggilan: ${b.panggilan}
+3. Tempat, Tanggal Lahir: ${b.ttl || '-'}
+4. Alamat: ${b.alamat || '-'}
+5. Pendidikan:
+   - SD: ${b.sd || '-'}
+   - SMP: ${b.smp || '-'}
+   - SMK: ${b.smk || '-'}
+6. Jurusan: ${b.jurusan}
+7. Kelas: ${b.kelas || '-'}
+8. Cita-Cita: ${b.citacita}
+9. Moto Hidup: ${b.moto}`;
+
+  copyText(text, `Biodata ${target === 'sri' ? 'Sri Wulandani' : 'Dewi Azah'}`);
+}
+
+// Initialize biodata on page load
+renderBio('sri');
+renderBio('dewi');
+
+// ===================================================
 // Floating Aesthetic Particle Canvas
 // ===================================================
 const canvas = document.getElementById('particleCanvas');
