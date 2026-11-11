@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Tim • Dewi & Sri Wulan</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              50: '#FDFCF7',
+              100: '#FAF6ED',
+              200: '#F4ECE0',
+              300: '#EAE0CE',
+              400: '#D9C8AF',
+              DEFAULT: '#FAF6ED',
+            },
+            aesthetic: {
+              blue: '#2B5B84',
+              deepblue: '#16324F',
+              softblue: '#7EA2C6',
+              babyblue: '#D6E5F3',
+              ice: '#EEF4F9',
+              warmtext: '#2C2B2A',
+              muted: '#7C7975',
+              creamtag: '#F2E9DB'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-cream-100 text-aesthetic-warmtext antialiased min-h-screen relative selection:bg-aesthetic-softblue selection:text-white overflow-x-hidden">
+
+  <!-- Floating Aesthetic Particle Canvas -->
+  <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Background Decorative Shapes / Wave Lines -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
+    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-aesthetic-softblue/20 blur-3xl"></div>
+    <div class="absolute top-1/2 -right-32 w-[30rem] h-[30rem] rounded-full bg-aesthetic-babyblue/30 blur-3xl"></div>
+    <div class="absolute -bottom-20 left-1/3 w-80 h-80 rounded-full bg-amber-100/40 blur-2xl"></div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="relative z-10 flex flex-col min-h-screen max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    
+    <!-- Top Navigation / Header -->
+    <header class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-aesthetic-warmtext/10">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-aesthetic-deepblue text-cream-100 flex items-center justify-center font-mono font-bold shadow-sm">
+          <span>02</span>
+        </div>
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-aesthetic-blue font-semibold">The Duo Archive</p>
+          <h1 class="text-xl sm:text-2xl font-serif italic text-aesthetic-deepblue tracking-tight">Our Stories & Dreams</h1>
+        </div>
+      </div>
+
+      <!-- Wave to Earth aesthetic badge -->
+      <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-aesthetic-softblue/30 text-xs font-mono text-aesthetic-deepblue shadow-xs">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Wave To Earth Palette • Blue & Cream</span>
+      </div>
+    </header>
+
+    <!-- Subtitle & Quote intro -->
+    <div class="text-center my-6 sm:my-8">
+      <span class="inline-block text-xs uppercase font-mono tracking-[0.25em] text-aesthetic-blue px-3 py-1 bg-aesthetic-babyblue/50 rounded-full mb-3">
+        Tim RPL • Creative & Caring
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-serif text-aesthetic-deepblue tracking-tight">
+        Dua Hati, Satu Cerita.
+      </h2>
+      <p class="text-aesthetic-muted text-sm sm:text-base max-w-lg mx-auto mt-2 font-light">
+        Selamat datang di web biodata tim kami. Klik tab atau foto di bawah untuk menjelajahi profil, hobi, cita-cita, dan impian kami masing-masing.
+      </p>
+    </div>
+
+    <!-- Interactive Member Switcher Tabs -->
+    <div class="flex justify-center mb-8 sm:mb-12">
+      <div class="inline-flex p-1.5 rounded-2xl bg-cream-200/80 backdrop-blur-md border border-aesthetic-warmtext/10 shadow-inner gap-1.5 sm:gap-2 max-w-lg w-full sm:w-auto">
+        
+        <!-- Tab Sri Wulandani -->
+        <button id="tab-sri" onclick="switchProfile('sri')" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 active-tab shadow-sm" aria-label="Lihat Profil Sri Wulandani">
+          <img src="assets/sri-wulandani.jpg" alt="Avatar Sri" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover ring-2 ring-aesthetic-softblue">
+          <span class="font-sans font-semibold">Sri Wulandani</span>
+        </button>
+
+        <!-- Tab Dewi Azah -->
+        <button id="tab-dewi" onclick="switchProfile('dewi')" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 inactive-tab" aria-label="Lihat Profil Dewi Azah Hapsoh">
+          <img src="assets/dewi-azah.jpg" alt="Avatar Dewi" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover ring-2 ring-amber-300">
+          <span class="font-sans font-semibold">Dewi Azah</span>
+        </button>
+
+        <!-- Tab Keduanya (Dual View) -->
+        <button id="tab-both" onclick="switchProfile('both')" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 inactive-tab" aria-label="Tampilkan Kedua Biodata Sekaligus">
+          <i class="fa-solid fa-users text-xs"></i>
+          <span class="font-sans font-semibold">Keduanya</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Profile Cards Container -->
+    <div class="relative w-full">
+      
+      <!-- ================= PROFILE 1: SRI WULANDANI ================= -->
+      <section id="profile-sri" class="profile-card block transition-all duration-500 ease-out">
+        <div class="bg-white/80 backdrop-blur-xl border border-aesthetic-softblue/30 rounded-3xl p-6 sm:p-10 shadow-xl shadow-aesthetic-deepblue/5 relative overflow-hidden">
+          
+          <!-- Decorative Stamp & Washi Tape Top -->
+          <div class="absolute -top-3 left-12 w-28 h-7 bg-aesthetic-babyblue/80 -rotate-2 rounded-sm shadow-xs border border-white/60 pointer-events-none"></div>
+          <div class="absolute top-6 right-6 font-mono text-[10px] text-aesthetic-muted uppercase tracking-widest border border-aesthetic-muted/30 px-2.5 py-1 rounded">
+            MEM.01 / SRI
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Left Column: Big Aesthetic Photo & Polaroids -->
+            <div class="lg:col-span-5 flex flex-col items-center">
+              <div class="relative group cursor-pointer" onclick="openPhotoModal('assets/sri-wulandani.jpg', 'Sri Wulandani')">
+                <!-- Polaroid Frame -->
+                <div class="p-4 bg-cream-50 rounded-2xl shadow-lg border border-aesthetic-warmtext/10 transform rotate-[-1.5deg] group-hover:rotate-0 transition-transform duration-300">
+                  <div class="relative overflow-hidden rounded-xl w-64 h-80 sm:w-72 sm:h-96">
+                    <img src="assets/sri-wulandani.jpg" alt="Sri Wulandani" class="w-full h-full object-cover object-top filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-aesthetic-deepblue/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                      <span class="text-white text-xs font-mono flex items-center gap-1.5"><i class="fa-solid fa-expand"></i> Perbesar Foto</span>
+                    </div>
+                  </div>
+                  <div class="pt-3 pb-1 flex justify-between items-center text-xs text-aesthetic-muted font-mono">
+                    <span>@sriwulandnii</span>
+                    <span>RPL CLUB 2026</span>
+                  </div>
+                </div>
+
+                <!-- Floating Badge -->
+                <div class="absolute -bottom-3 -right-2 bg-aesthetic-deepblue text-white px-3.5 py-1.5 rounded-full text-xs font-mono shadow-md flex items-center gap-1.5">
+                  <i class="fa-solid fa-clapperboard text-amber-300"></i>
+                  <span>Aspiring Actress</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Profile Information -->
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-6">
+              
+              <!-- Name & Title -->
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="px-2.5 py-0.5 rounded-md bg-aesthetic-babyblue text-aesthetic-deepblue font-mono text-xs font-semibold">
+                    Profil Anggota 1
+                  </span>
+                  <span class="text-xs font-mono text-aesthetic-muted">• Rekayasa Perangkat Lunak</span>
+                </div>
+                <h3 class="text-3xl sm:text-4xl font-serif text-aesthetic-deepblue font-bold tracking-tight">
+                  Sri Wulandani
+                </h3>
+                <p class="text-sm font-mono text-aesthetic-muted mt-1">
+                  Panggilan: <span class="text-aesthetic-blue font-semibold">Wulan / Sri</span>
+                </p>
+              </div>
+
+              <!-- Motto Hidup (Quote Card) -->
+              <div class="p-5 rounded-2xl bg-cream-50/90 border border-aesthetic-warmtext/10 relative shadow-sm">
+                <i class="fa-solid fa-quote-left text-aesthetic-softblue/30 text-3xl absolute top-3 left-3 -z-0"></i>
+                <div class="relative z-10 pl-6">
+                  <p class="text-xs font-mono uppercase tracking-wider text-aesthetic-blue font-semibold mb-1">Motto Hidup</p>
+                  <blockquote class="text-lg sm:text-xl font-serif italic text-aesthetic-deepblue leading-snug">
+                    “Tumbuhlah menjadi sesuatu yang kau inginkan.”
+                  </blockquote>
+                  <div class="mt-3 flex items-center justify-between">
+                    <span class="text-xs text-aesthetic-muted font-mono">— Sri Wulandani</span>
+                    <button onclick="copyText('Tumbuhlah menjadi sesuatu yang kau inginkan.', 'Motto Sri Wulandani')" class="text-xs font-mono text-aesthetic-blue hover:text-aesthetic-deepblue flex items-center gap-1 transition-colors">
+                      <i class="fa-regular fa-copy"></i> Salin Motto
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Info Cards: Hobi & Cita-Cita -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Hobi Card -->
+                <div class="p-4 rounded-2xl bg-white border border-aesthetic-warmtext/10 hover:border-aesthetic-softblue/50 transition-all duration-300 hover:shadow-md group">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="w-9 h-9 rounded-xl bg-aesthetic-babyblue text-aesthetic-blue flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <i class="fa-solid fa-book-journal-whills text-lg"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-mono text-aesthetic-muted uppercase">Hobi Utama</p>
+                      <h4 class="font-sans font-bold text-aesthetic-deepblue text-base">Journaling</h4>
+                    </div>
+                  </div>
+                  <p class="text-xs text-aesthetic-muted leading-relaxed">
+                    Mencatat refleksi, menuangkan ide kreatif, menata rencana, dan mengabadikan momen keseharian dalam buku catatan estetis.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">✨ Aesthetic Notes</span>
+                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">📝 Mindful</span>
+                  </div>
+                </div>
+
+                <!-- Cita-Cita Card -->
+                <div class="p-4 rounded-2xl bg-white border border-aesthetic-warmtext/10 hover:border-amber-300 transition-all duration-300 hover:shadow-md group">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <i class="fa-solid fa-masks-theater text-lg"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-mono text-aesthetic-muted uppercase">Cita-Cita</p>
+                      <h4 class="font-sans font-bold text-aesthetic-deepblue text-base">Aktor (Actress)</h4>
+                    </div>
+                  </div>
+                  <p class="text-xs text-aesthetic-muted leading-relaxed">
+                    Bermimpi mengekspresikan beragam karakter, seni peran di panggung dan layar sinema, serta menginspirasi banyak penonton melalui karya.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🎬 Peran & Teater</span>
+                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🌟 Sinema</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Aesthetic Vibe / Moodboard Card -->
+              <div class="p-3.5 rounded-2xl bg-cream-50/80 border border-aesthetic-warmtext/10 flex items-center gap-3.5">
+                <img src="assets/1782451684253425.jpg" alt="Aesthetic Blueprint" class="w-12 h-12 rounded-xl object-cover ring-1 ring-aesthetic-softblue/30 shadow-xs cursor-pointer hover:scale-105 transition-transform" onclick="openPhotoModal('assets/1782451684253425.jpg', 'Summer Flows 0.02 - Wave to Earth Moodboard')">
+                <div class="flex-1">
+                  <p class="text-[10px] font-mono text-aesthetic-muted uppercase tracking-wider">Aesthetic Moodboard</p>
+                  <p class="text-xs font-sans text-aesthetic-deepblue font-medium">Summer Flows 0.02 • Vintage Blue Ink & Creative Journaling</p>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-1 rounded-md bg-aesthetic-babyblue/60 text-aesthetic-blue">Wave To Earth Vibe</span>
+              </div>
+
+              <!-- Social Media & Contact -->
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <span class="text-xs font-mono text-aesthetic-muted">Hubungi Sri:</span>
+                
+                <a href="https://instagram.com/sriwulandnii" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-amber-500/10 hover:from-pink-500/20 hover:to-amber-500/20 border border-pink-300/40 text-aesthetic-deepblue text-xs font-mono font-semibold transition-all hover:scale-105 shadow-xs">
+                  <i class="fa-brands fa-instagram text-pink-600 text-sm"></i>
+                  <span>@sriwulandnii</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-60"></i>
+                </a>
+
+                <button onclick="copyText('sriwulandnii', 'Username Instagram Sri')" class="px-3 py-2 rounded-xl bg-cream-50 hover:bg-cream-200 border border-aesthetic-warmtext/10 text-aesthetic-muted hover:text-aesthetic-deepblue text-xs font-mono transition-colors" title="Salin Username">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PROFILE 2: DEWI AZAH HAPSOH ================= -->
+      <section id="profile-dewi" class="profile-card hidden transition-all duration-500 ease-out">
+        <div class="bg-white/80 backdrop-blur-xl border border-aesthetic-softblue/30 rounded-3xl p-6 sm:p-10 shadow-xl shadow-aesthetic-deepblue/5 relative overflow-hidden">
+          
+          <!-- Decorative Stamp & Washi Tape Top -->
+          <div class="absolute -top-3 left-12 w-28 h-7 bg-amber-200/80 rotate-2 rounded-sm shadow-xs border border-white/60 pointer-events-none"></div>
+          <div class="absolute top-6 right-6 font-mono text-[10px] text-aesthetic-muted uppercase tracking-widest border border-aesthetic-muted/30 px-2.5 py-1 rounded">
+            MEM.02 / DEWI
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Left Column: Big Aesthetic Photo & Polaroids -->
+            <div class="lg:col-span-5 flex flex-col items-center">
+              <div class="relative group cursor-pointer" onclick="openPhotoModal('assets/dewi-azah.jpg', 'Dewi Azah Hapsoh')">
+                <!-- Polaroid Frame -->
+                <div class="p-4 bg-cream-50 rounded-2xl shadow-lg border border-aesthetic-warmtext/10 transform rotate-[1.5deg] group-hover:rotate-0 transition-transform duration-300">
+                  <div class="relative overflow-hidden rounded-xl w-64 h-80 sm:w-72 sm:h-96">
+                    <img src="assets/dewi-azah.jpg" alt="Dewi Azah Hapsoh" class="w-full h-full object-cover object-center filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-aesthetic-deepblue/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                      <span class="text-white text-xs font-mono flex items-center gap-1.5"><i class="fa-solid fa-expand"></i> Perbesar Foto</span>
+                    </div>
+                  </div>
+                  <div class="pt-3 pb-1 flex justify-between items-center text-xs text-aesthetic-muted font-mono">
+                    <span>@azahh-ajaa</span>
+                    <span>Melody & Care 2026</span>
+                  </div>
+                </div>
+
+                <!-- Floating Badge -->
+                <div class="absolute -bottom-3 -right-2 bg-aesthetic-blue text-white px-3.5 py-1.5 rounded-full text-xs font-mono shadow-md flex items-center gap-1.5">
+                  <i class="fa-solid fa-notes-medical text-rose-300"></i>
+                  <span>Future Nurse</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Profile Information -->
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-6">
+              
+              <!-- Name & Title -->
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 font-mono text-xs font-semibold">
+                    Profil Anggota 2
+                  </span>
+                  <span class="text-xs font-mono text-aesthetic-muted">• Rekayasa Perangkat Lunak</span>
+                </div>
+                <h3 class="text-3xl sm:text-4xl font-serif text-aesthetic-deepblue font-bold tracking-tight">
+                  Dewi Azah Hapsoh
+                </h3>
+                <p class="text-sm font-mono text-aesthetic-muted mt-1">
+                  Panggilan: <span class="text-aesthetic-blue font-semibold">Azah / Dewi</span>
+                </p>
+              </div>
+
+              <!-- Motto Hidup (Quote Card) -->
+              <div class="p-5 rounded-2xl bg-cream-50/90 border border-aesthetic-warmtext/10 relative shadow-sm">
+                <i class="fa-solid fa-quote-left text-aesthetic-softblue/30 text-3xl absolute top-3 left-3 -z-0"></i>
+                <div class="relative z-10 pl-6">
+                  <p class="text-xs font-mono uppercase tracking-wider text-aesthetic-blue font-semibold mb-1">Motto Hidup</p>
+                  <blockquote class="text-lg sm:text-xl font-serif italic text-aesthetic-deepblue leading-snug">
+                    “Jadikan kegagalan sebagai pelajaran, bukan alasan untuk berhenti.”
+                  </blockquote>
+                  <div class="mt-3 flex items-center justify-between">
+                    <span class="text-xs text-aesthetic-muted font-mono">— Dewi Azah Hapsoh</span>
+                    <button onclick="copyText('Jadikan kegagalan sebagai pelajaran, bukan alasan untuk berhenti.', 'Motto Dewi Azah')" class="text-xs font-mono text-aesthetic-blue hover:text-aesthetic-deepblue flex items-center gap-1 transition-colors">
+                      <i class="fa-regular fa-copy"></i> Salin Motto
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Info Cards: Hobi & Cita-Cita -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Hobi Card -->
+                <div class="p-4 rounded-2xl bg-white border border-aesthetic-warmtext/10 hover:border-aesthetic-softblue/50 transition-all duration-300 hover:shadow-md group">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="w-9 h-9 rounded-xl bg-aesthetic-babyblue text-aesthetic-blue flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <i class="fa-solid fa-music text-lg"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-mono text-aesthetic-muted uppercase">Hobi Utama</p>
+                      <h4 class="font-sans font-bold text-aesthetic-deepblue text-base">Musik & Menyanyi</h4>
+                    </div>
+                  </div>
+                  <p class="text-xs text-aesthetic-muted leading-relaxed">
+                    Sangat menyukai alunan musik merdu, mendengarkan lagu-lagu tenang ala Wave to Earth, dan bernyanyi dengan penuh penghayatan jiwa.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🎵 Vokal & Harmoni</span>
+                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🎧 Wave to Earth</span>
+                  </div>
+                </div>
+
+                <!-- Cita-Cita Card -->
+                <div class="p-4 rounded-2xl bg-white border border-aesthetic-warmtext/10 hover:border-rose-300 transition-all duration-300 hover:shadow-md group">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <i class="fa-solid fa-user-nurse text-lg"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs font-mono text-aesthetic-muted uppercase">Cita-Cita</p>
+                      <h4 class="font-sans font-bold text-aesthetic-deepblue text-base">Perawat (Nurse)</h4>
+                    </div>
+                  </div>
+                  <p class="text-xs text-aesthetic-muted leading-relaxed">
+                    Bercita-cita mulia merawat dan menolong sesama dengan ketulusan hati, empati tinggi, serta dedikasi di bidang kesehatan medis.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🩺 Caregiver</span>
+                    <span class="text-[11px] font-mono px-2 py-0.5 bg-cream-100 rounded text-aesthetic-warmtext">🤍 Jiwa Kemanusiaan</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Aesthetic Music Inspiration Card -->
+              <div class="p-3.5 rounded-2xl bg-cream-50/80 border border-aesthetic-warmtext/10 flex items-center gap-3.5">
+                <img src="assets/th144.jpg" alt="Wave to Earth Art" class="w-12 h-12 rounded-xl object-cover ring-1 ring-aesthetic-softblue/30 shadow-xs cursor-pointer hover:scale-105 transition-transform" onclick="openPhotoModal('assets/th144.jpg', 'Wave to Earth - Bad Poster Art')">
+                <div class="flex-1">
+                  <p class="text-[10px] font-mono text-aesthetic-muted uppercase tracking-wider">Lagu Favorit On Repeat</p>
+                  <p class="text-xs font-sans text-aesthetic-deepblue font-medium">Wave to Earth — “Bad” & “Seasons”</p>
+                </div>
+                <span class="text-[10px] font-mono px-2 py-1 rounded-md bg-amber-100 text-amber-800">Indie Vintage</span>
+              </div>
+
+              <!-- Social Media & Contact -->
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <span class="text-xs font-mono text-aesthetic-muted">Hubungi Dewi:</span>
+                
+                <!-- Instagram -->
+                <a href="https://instagram.com/azahh-ajaa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500/10 to-purple-500/10 hover:from-pink-500/20 hover:to-purple-500/20 border border-pink-300/40 text-aesthetic-deepblue text-xs font-mono font-semibold transition-all hover:scale-105 shadow-xs">
+                  <i class="fa-brands fa-instagram text-pink-600 text-sm"></i>
+                  <span>@azahh-ajaa</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-60"></i>
+                </a>
+
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@azahhe_06" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-aesthetic-deepblue/5 hover:bg-aesthetic-deepblue/10 border border-aesthetic-deepblue/20 text-aesthetic-deepblue text-xs font-mono font-semibold transition-all hover:scale-105 shadow-xs">
+                  <i class="fa-brands fa-tiktok text-black text-sm"></i>
+                  <span>@azahhe_06</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-60"></i>
+                </a>
+
+                <button onclick="copyText('azahh-ajaa', 'Instagram Dewi')" class="px-3 py-2 rounded-xl bg-cream-50 hover:bg-cream-200 border border-aesthetic-warmtext/10 text-aesthetic-muted hover:text-aesthetic-deepblue text-xs font-mono transition-colors" title="Salin Username">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Quick Synergy & Team Card -->
+    <div class="mt-12 bg-white/60 backdrop-blur-md border border-aesthetic-warmtext/10 rounded-3xl p-6 sm:p-8 shadow-sm">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-4">
+          <!-- Overlapping Mini Avatars -->
+          <div class="flex -space-x-3 overflow-hidden p-1">
+            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-cream-100 object-cover cursor-pointer hover:scale-110 transition-transform" src="assets/sri-wulandani.jpg" alt="Sri Wulan" onclick="switchProfile('sri')">
+            <img class="inline-block h-12 w-12 rounded-full ring-2 ring-cream-100 object-cover cursor-pointer hover:scale-110 transition-transform" src="assets/dewi-azah.jpg" alt="Dewi Azah" onclick="switchProfile('dewi')">
+          </div>
+          <div>
+            <h4 class="font-serif text-lg font-bold text-aesthetic-deepblue">Kombinasi Karakter Tim</h4>
+            <p class="text-xs text-aesthetic-muted max-w-md">
+              Sri yang kreatif & ekspresif dalam menulis dan seni peran, berpadu harmonis dengan Dewi yang penuh kehangatan musik dan jiwa kepedulian tulus.
+            </p>
+          </div>
+        </div>
+
+        <!-- Next / Prev Profile Quick Toggle Buttons -->
+        <div class="flex items-center gap-2">
+          <button onclick="toggleProfile()" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-aesthetic-deepblue hover:bg-aesthetic-blue text-white text-xs font-mono transition-all shadow-md active:scale-95">
+            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            <span id="toggleButtonText">Ganti ke Profil Dewi</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Aesthetic Footer with Wave To Earth Inspiration -->
+    <footer class="mt-16 pt-8 border-t border-aesthetic-warmtext/10 text-center flex flex-col items-center justify-center space-y-3">
+      <div class="flex items-center gap-2 text-xs font-mono text-aesthetic-muted">
+        <span>© 2026 Tim Dewi & Sri Wulan</span>
+        <span>•</span>
+        <span>Dibuat dengan Estetika Biru & Krem</span>
+      </div>
+      <p class="text-xs font-serif italic text-aesthetic-blue">
+        "Like waves coming softly to the shore, we bloom and grow together."
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Modal for Photo Preview (Full-Size) -->
+  <div id="photoModal" class="fixed inset-0 z-50 bg-aesthetic-deepblue/80 backdrop-blur-md hidden items-center justify-center p-4 transition-all opacity-0" onclick="closePhotoModal()">
+    <div class="relative max-w-lg w-full bg-cream-50 rounded-3xl p-4 shadow-2xl border border-white/20 transform scale-95 transition-transform" onclick="event.stopPropagation()">
+      <div class="relative rounded-2xl overflow-hidden max-h-[75vh] flex items-center justify-center bg-black/5">
+        <img id="modalImage" src="" alt="Foto Profil" class="w-full h-auto max-h-[75vh] object-contain rounded-xl">
+      </div>
+      <div class="mt-3 flex items-center justify-between px-2">
+        <span id="modalCaption" class="font-serif text-lg text-aesthetic-deepblue font-bold"></span>
+        <button onclick="closePhotoModal()" class="w-8 h-8 rounded-full bg-cream-200 hover:bg-cream-300 text-aesthetic-warmtext flex items-center justify-center text-sm transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification for Copying -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-aesthetic-deepblue text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-aesthetic-softblue/30 text-xs font-mono pointer-events-none">
+    <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <span id="toastText">Teks berhasil disalin!</span>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

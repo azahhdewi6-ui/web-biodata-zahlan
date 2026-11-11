@@ -1,0 +1,90 @@
+/* ===================================================
+   Custom Aesthetic Styles - Wave To Earth Inspired
+   Colors: Soft Blue & Vintage Cream
+   =================================================== */
+
+/* Custom smooth transitions */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAF6ED;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(126, 162, 198, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(214, 229, 243, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(244, 236, 224, 0.5) 0px, transparent 100%);
+  background-attachment: fixed;
+}
+
+/* Active & Inactive Tab Styles */
+.active-tab {
+  background-color: #16324F !important;
+  color: #FAF6ED !important;
+  box-shadow: 0 4px 14px rgba(22, 50, 79, 0.15);
+}
+
+.inactive-tab {
+  background-color: transparent !important;
+  color: #7C7975 !important;
+}
+
+.inactive-tab:hover {
+  background-color: rgba(234, 224, 206, 0.5) !important;
+  color: #16324F !important;
+}
+
+/* Profile Card Animations */
+.profile-card {
+  animation: cardFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal Open / Close Transition */
+#photoModal.show {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+#photoModal.show > div {
+  transform: scale(1) !important;
+}
+
+/* Toast Notification Animation */
+#toastNotification.show {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF6ED;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7EA2C6;
+  border-radius: 9999px;
+  border: 2px solid #FAF6ED;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2B5B84;
+}
