@@ -113,10 +113,12 @@ body {
 }
 
 /* ===================================================
-   AESTHETIC THEMES PALETTES
+   AESTHETIC THEMES PALETTES & DYNAMIC BIODATA COLUMNS
    =================================================== */
 
-/* 1. Theme Strawberry Milk */
+/* ---------------------------------------------------
+   1. THEME STRAWBERRY MILK 🍓 (Pastel Pink & Berry Cream)
+   --------------------------------------------------- */
 body.theme-strawberry {
   background-color: #FFF1F2 !important;
   background-image: 
@@ -142,8 +144,156 @@ body.theme-strawberry .washi-tape-blue {
 body.theme-strawberry .washi-tape-pink {
   background: repeating-linear-gradient(-45deg, #f43f5e, #f43f5e 8px, #fb7185 8px, #fb7185 16px) !important;
 }
+body.theme-strawberry .washi-tape-cream {
+  background: repeating-linear-gradient(45deg, #fda4af, #fda4af 8px, #fecdd3 8px, #fecdd3 16px) !important;
+}
 
-/* 2. Theme Matcha Latte */
+/* Strawberry Biodata Columns & Scrapbook Cards */
+body.theme-strawberry .scrapbook-card-sri {
+  background-color: rgba(255, 247, 248, 0.95) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(244, 63, 94, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(255, 228, 230, 0.45) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(254, 205, 211, 0.35) 100%) !important;
+  border-color: #FDA4AF !important;
+  box-shadow: 0 20px 45px -12px rgba(244, 63, 94, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+body.theme-strawberry .scrapbook-card-dewi {
+  background-color: rgba(255, 243, 245, 0.95) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(225, 29, 72, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(254, 205, 211, 0.55) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(251, 113, 133, 0.3) 100%) !important;
+  border-color: #FB7185 !important;
+  box-shadow: 0 20px 45px -12px rgba(225, 29, 72, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+
+/* Strawberry Ruled Notebook Memos */
+body.theme-strawberry .notebook-memo-sri,
+body.theme-strawberry .notebook-memo-dewi {
+  background-color: #FFF8F9 !important;
+  background-image: 
+    linear-gradient(90deg, transparent 24px, rgba(225, 29, 72, 0.35) 24px, rgba(225, 29, 72, 0.35) 25.5px, transparent 25.5px),
+    linear-gradient(rgba(251, 113, 133, 0.28) 1px, transparent 1px) !important;
+  border-color: #FDA4AF !important;
+  box-shadow: 0 8px 20px -4px rgba(251, 113, 133, 0.3) !important;
+}
+body.theme-strawberry .bio-memo-row {
+  border-color: rgba(254, 205, 211, 0.65) !important;
+}
+body.theme-strawberry .bio-memo-label {
+  color: #881337 !important;
+}
+body.theme-strawberry .bio-header-divider {
+  border-color: #FECDD3 !important;
+}
+body.theme-strawberry .bio-name-title {
+  color: #881337 !important;
+}
+body.theme-strawberry .member-tag-badge {
+  background-color: #FFE4E6 !important;
+  color: #9F1239 !important;
+}
+body.theme-strawberry .member-tag-sub {
+  color: #BE123C !important;
+}
+body.theme-strawberry .bio-val-nama {
+  color: #881337 !important;
+}
+body.theme-strawberry .bio-val-panggilan {
+  color: #E11D48 !important;
+}
+body.theme-strawberry .bio-val-jurusan {
+  color: #BE123C !important;
+}
+body.theme-strawberry .bio-val-citacita {
+  color: #9F1239 !important;
+  background-color: #FFE4E6 !important;
+}
+body.theme-strawberry .bio-val-empty {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  color: #9F1239 !important;
+  border: 1px solid #FECDD3 !important;
+}
+body.theme-strawberry .bio-moto-box {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #FECDD3 !important;
+}
+body.theme-strawberry .bio-moto-box span {
+  color: #881337 !important;
+}
+body.theme-strawberry .bio-hobi-label {
+  color: #9F1239 !important;
+}
+body.theme-strawberry .bio-hobi-pill {
+  background-color: #FFE4E6 !important;
+  color: #9F1239 !important;
+}
+body.theme-strawberry .bio-edit-btn {
+  background-color: #E11D48 !important;
+}
+body.theme-strawberry .bio-edit-btn:hover {
+  background-color: #BE123C !important;
+}
+body.theme-strawberry .main-polaroid-frame {
+  background-color: #FFF1F2 !important;
+  border-color: #FECDD3 !important;
+}
+body.theme-strawberry .main-polaroid-title {
+  color: #881337 !important;
+}
+body.theme-strawberry .diary-stamp {
+  color: #E11D48 !important;
+  border-color: #FB7185 !important;
+}
+body.theme-strawberry .bio-gallery-section {
+  border-color: #FDA4AF !important;
+}
+body.theme-strawberry .bio-gallery-title {
+  color: #881337 !important;
+}
+body.theme-strawberry .bio-gallery-sub {
+  color: #9F1239 !important;
+}
+body.theme-strawberry .bio-add-polaroid-btn {
+  background-color: #FFE4E6 !important;
+  border-color: #FDA4AF !important;
+  color: #9F1239 !important;
+}
+body.theme-strawberry .bio-add-polaroid-btn:hover {
+  background-color: #FECDD3 !important;
+}
+body.theme-strawberry .bio-add-polaroid-card {
+  border-color: #FB7185 !important;
+  background-color: rgba(255, 241, 242, 0.6) !important;
+}
+body.theme-strawberry .bio-add-polaroid-card p,
+body.theme-strawberry .bio-add-polaroid-card span,
+body.theme-strawberry .bio-add-polaroid-card i {
+  color: #9F1239 !important;
+}
+body.theme-strawberry .polaroid-frame {
+  border-color: #FECDD3 !important;
+}
+body.theme-strawberry .polaroid-caption {
+  color: #881337 !important;
+}
+body.theme-strawberry .polaroid-sub {
+  color: #BE123C !important;
+}
+body.theme-strawberry .synergy-card {
+  background-color: rgba(255, 245, 247, 0.85) !important;
+  border-color: #FECDD3 !important;
+}
+body.theme-strawberry .synergy-card h4 {
+  color: #881337 !important;
+}
+body.theme-strawberry #musicPlayerContainer > div {
+  border-color: #FECDD3 !important;
+  box-shadow: 0 10px 25px -5px rgba(244, 63, 94, 0.25) !important;
+}
+
+/* ---------------------------------------------------
+   2. THEME MATCHA LATTE 🍵 (Sage Green & Cafe Cream)
+   --------------------------------------------------- */
 body.theme-matcha {
   background-color: #F7FEE7 !important;
   background-image: 
@@ -169,8 +319,156 @@ body.theme-matcha .washi-tape-blue {
 body.theme-matcha .washi-tape-pink {
   background: repeating-linear-gradient(-45deg, #86efac, #86efac 8px, #bbf7d0 8px, #bbf7d0 16px) !important;
 }
+body.theme-matcha .washi-tape-cream {
+  background: repeating-linear-gradient(45deg, #fef08a, #fef08a 8px, #dcfce7 8px, #dcfce7 16px) !important;
+}
 
-/* 3. Theme Lavender Dream */
+/* Matcha Biodata Columns & Scrapbook Cards */
+body.theme-matcha .scrapbook-card-sri {
+  background-color: rgba(254, 255, 248, 0.95) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(74, 222, 128, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(220, 252, 231, 0.45) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(254, 240, 138, 0.25) 100%) !important;
+  border-color: #86EFAC !important;
+  box-shadow: 0 20px 45px -12px rgba(34, 197, 94, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+body.theme-matcha .scrapbook-card-dewi {
+  background-color: rgba(240, 253, 244, 0.95) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(34, 197, 94, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(187, 247, 208, 0.5) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(236, 253, 245, 0.3) 100%) !important;
+  border-color: #4ADE80 !important;
+  box-shadow: 0 20px 45px -12px rgba(22, 163, 74, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+
+/* Matcha Ruled Notebook Memos */
+body.theme-matcha .notebook-memo-sri,
+body.theme-matcha .notebook-memo-dewi {
+  background-color: #FBFDF5 !important;
+  background-image: 
+    linear-gradient(90deg, transparent 24px, rgba(22, 101, 52, 0.38) 24px, rgba(22, 101, 52, 0.38) 25.5px, transparent 25.5px),
+    linear-gradient(rgba(74, 222, 128, 0.28) 1px, transparent 1px) !important;
+  border-color: #86EFAC !important;
+  box-shadow: 0 8px 20px -4px rgba(74, 222, 128, 0.3) !important;
+}
+body.theme-matcha .bio-memo-row {
+  border-color: rgba(187, 247, 208, 0.7) !important;
+}
+body.theme-matcha .bio-memo-label {
+  color: #14532D !important;
+}
+body.theme-matcha .bio-header-divider {
+  border-color: #BBF7D0 !important;
+}
+body.theme-matcha .bio-name-title {
+  color: #14532D !important;
+}
+body.theme-matcha .member-tag-badge {
+  background-color: #DCFCE7 !important;
+  color: #14532D !important;
+}
+body.theme-matcha .member-tag-sub {
+  color: #166534 !important;
+}
+body.theme-matcha .bio-val-nama {
+  color: #14532D !important;
+}
+body.theme-matcha .bio-val-panggilan {
+  color: #15803D !important;
+}
+body.theme-matcha .bio-val-jurusan {
+  color: #15803D !important;
+}
+body.theme-matcha .bio-val-citacita {
+  color: #14532D !important;
+  background-color: #DCFCE7 !important;
+}
+body.theme-matcha .bio-val-empty {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  color: #166534 !important;
+  border: 1px solid #BBF7D0 !important;
+}
+body.theme-matcha .bio-moto-box {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #BBF7D0 !important;
+}
+body.theme-matcha .bio-moto-box span {
+  color: #14532D !important;
+}
+body.theme-matcha .bio-hobi-label {
+  color: #166534 !important;
+}
+body.theme-matcha .bio-hobi-pill {
+  background-color: #DCFCE7 !important;
+  color: #166534 !important;
+}
+body.theme-matcha .bio-edit-btn {
+  background-color: #16A34A !important;
+}
+body.theme-matcha .bio-edit-btn:hover {
+  background-color: #15803D !important;
+}
+body.theme-matcha .main-polaroid-frame {
+  background-color: #F0FDF4 !important;
+  border-color: #BBF7D0 !important;
+}
+body.theme-matcha .main-polaroid-title {
+  color: #14532D !important;
+}
+body.theme-matcha .diary-stamp {
+  color: #15803D !important;
+  border-color: #86EFAC !important;
+}
+body.theme-matcha .bio-gallery-section {
+  border-color: #86EFAC !important;
+}
+body.theme-matcha .bio-gallery-title {
+  color: #14532D !important;
+}
+body.theme-matcha .bio-gallery-sub {
+  color: #166534 !important;
+}
+body.theme-matcha .bio-add-polaroid-btn {
+  background-color: #DCFCE7 !important;
+  border-color: #86EFAC !important;
+  color: #14532D !important;
+}
+body.theme-matcha .bio-add-polaroid-btn:hover {
+  background-color: #BBF7D0 !important;
+}
+body.theme-matcha .bio-add-polaroid-card {
+  border-color: #86EFAC !important;
+  background-color: rgba(240, 253, 244, 0.6) !important;
+}
+body.theme-matcha .bio-add-polaroid-card p,
+body.theme-matcha .bio-add-polaroid-card span,
+body.theme-matcha .bio-add-polaroid-card i {
+  color: #14532D !important;
+}
+body.theme-matcha .polaroid-frame {
+  border-color: #BBF7D0 !important;
+}
+body.theme-matcha .polaroid-caption {
+  color: #14532D !important;
+}
+body.theme-matcha .polaroid-sub {
+  color: #166534 !important;
+}
+body.theme-matcha .synergy-card {
+  background-color: rgba(240, 253, 244, 0.85) !important;
+  border-color: #BBF7D0 !important;
+}
+body.theme-matcha .synergy-card h4 {
+  color: #14532D !important;
+}
+body.theme-matcha #musicPlayerContainer > div {
+  border-color: #BBF7D0 !important;
+  box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.25) !important;
+}
+
+/* ---------------------------------------------------
+   3. THEME LAVENDER DREAM 🫐 (Pastel Violet & Lilac Milk)
+   --------------------------------------------------- */
 body.theme-lavender {
   background-color: #FAF5FF !important;
   background-image: 
@@ -196,8 +494,156 @@ body.theme-lavender .washi-tape-blue {
 body.theme-lavender .washi-tape-pink {
   background: repeating-linear-gradient(-45deg, #c4b5fd, #c4b5fd 8px, #ddd6fe 8px, #ddd6fe 16px) !important;
 }
+body.theme-lavender .washi-tape-cream {
+  background: repeating-linear-gradient(45deg, #fed7aa, #fed7aa 8px, #ede9fe 8px, #ede9fe 16px) !important;
+}
 
-/* 4. Theme Sunset Peach */
+/* Lavender Biodata Columns & Scrapbook Cards */
+body.theme-lavender .scrapbook-card-sri {
+  background-color: rgba(253, 251, 255, 0.95) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(168, 85, 247, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(243, 232, 255, 0.5) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(233, 213, 255, 0.35) 100%) !important;
+  border-color: #C4B5FD !important;
+  box-shadow: 0 20px 45px -12px rgba(147, 51, 234, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+body.theme-lavender .scrapbook-card-dewi {
+  background-color: rgba(245, 243, 255, 0.95) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(147, 51, 234, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(233, 213, 255, 0.55) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(216, 180, 254, 0.3) 100%) !important;
+  border-color: #A78BFA !important;
+  box-shadow: 0 20px 45px -12px rgba(126, 34, 206, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+
+/* Lavender Ruled Notebook Memos */
+body.theme-lavender .notebook-memo-sri,
+body.theme-lavender .notebook-memo-dewi {
+  background-color: #FAF7FF !important;
+  background-image: 
+    linear-gradient(90deg, transparent 24px, rgba(109, 40, 217, 0.35) 24px, rgba(109, 40, 217, 0.35) 25.5px, transparent 25.5px),
+    linear-gradient(rgba(167, 139, 250, 0.28) 1px, transparent 1px) !important;
+  border-color: #C4B5FD !important;
+  box-shadow: 0 8px 20px -4px rgba(167, 139, 250, 0.3) !important;
+}
+body.theme-lavender .bio-memo-row {
+  border-color: rgba(221, 214, 254, 0.7) !important;
+}
+body.theme-lavender .bio-memo-label {
+  color: #3B0764 !important;
+}
+body.theme-lavender .bio-header-divider {
+  border-color: #DDD6FE !important;
+}
+body.theme-lavender .bio-name-title {
+  color: #3B0764 !important;
+}
+body.theme-lavender .member-tag-badge {
+  background-color: #EDE9FE !important;
+  color: #4C1D95 !important;
+}
+body.theme-lavender .member-tag-sub {
+  color: #581C87 !important;
+}
+body.theme-lavender .bio-val-nama {
+  color: #3B0764 !important;
+}
+body.theme-lavender .bio-val-panggilan {
+  color: #7C3AED !important;
+}
+body.theme-lavender .bio-val-jurusan {
+  color: #6B21A8 !important;
+}
+body.theme-lavender .bio-val-citacita {
+  color: #3B0764 !important;
+  background-color: #EDE9FE !important;
+}
+body.theme-lavender .bio-val-empty {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  color: #581C87 !important;
+  border: 1px solid #DDD6FE !important;
+}
+body.theme-lavender .bio-moto-box {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #DDD6FE !important;
+}
+body.theme-lavender .bio-moto-box span {
+  color: #3B0764 !important;
+}
+body.theme-lavender .bio-hobi-label {
+  color: #581C87 !important;
+}
+body.theme-lavender .bio-hobi-pill {
+  background-color: #EDE9FE !important;
+  color: #581C87 !important;
+}
+body.theme-lavender .bio-edit-btn {
+  background-color: #7C3AED !important;
+}
+body.theme-lavender .bio-edit-btn:hover {
+  background-color: #6D28D9 !important;
+}
+body.theme-lavender .main-polaroid-frame {
+  background-color: #FAF5FF !important;
+  border-color: #DDD6FE !important;
+}
+body.theme-lavender .main-polaroid-title {
+  color: #3B0764 !important;
+}
+body.theme-lavender .diary-stamp {
+  color: #7C3AED !important;
+  border-color: #C4B5FD !important;
+}
+body.theme-lavender .bio-gallery-section {
+  border-color: #C4B5FD !important;
+}
+body.theme-lavender .bio-gallery-title {
+  color: #3B0764 !important;
+}
+body.theme-lavender .bio-gallery-sub {
+  color: #581C87 !important;
+}
+body.theme-lavender .bio-add-polaroid-btn {
+  background-color: #EDE9FE !important;
+  border-color: #C4B5FD !important;
+  color: #4C1D95 !important;
+}
+body.theme-lavender .bio-add-polaroid-btn:hover {
+  background-color: #DDD6FE !important;
+}
+body.theme-lavender .bio-add-polaroid-card {
+  border-color: #C4B5FD !important;
+  background-color: rgba(245, 243, 255, 0.6) !important;
+}
+body.theme-lavender .bio-add-polaroid-card p,
+body.theme-lavender .bio-add-polaroid-card span,
+body.theme-lavender .bio-add-polaroid-card i {
+  color: #3B0764 !important;
+}
+body.theme-lavender .polaroid-frame {
+  border-color: #DDD6FE !important;
+}
+body.theme-lavender .polaroid-caption {
+  color: #3B0764 !important;
+}
+body.theme-lavender .polaroid-sub {
+  color: #581C87 !important;
+}
+body.theme-lavender .synergy-card {
+  background-color: rgba(245, 243, 255, 0.85) !important;
+  border-color: #DDD6FE !important;
+}
+body.theme-lavender .synergy-card h4 {
+  color: #3B0764 !important;
+}
+body.theme-lavender #musicPlayerContainer > div {
+  border-color: #DDD6FE !important;
+  box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.25) !important;
+}
+
+/* ---------------------------------------------------
+   4. THEME SUNSET PEACH 🌻 (Warm Honey & Golden Apricot)
+   --------------------------------------------------- */
 body.theme-peach {
   background-color: #FFFBEB !important;
   background-image: 
@@ -223,8 +669,156 @@ body.theme-peach .washi-tape-blue {
 body.theme-peach .washi-tape-pink {
   background: repeating-linear-gradient(-45deg, #fde68a, #fde68a 8px, #fef3c7 8px, #fef3c7 16px) !important;
 }
+body.theme-peach .washi-tape-cream {
+  background: repeating-linear-gradient(45deg, #fcd34d, #fcd34d 8px, #fed7aa 8px, #fed7aa 16px) !important;
+}
 
-/* 5. Theme Midnight Stars (Dark Aesthetic) */
+/* Peach Biodata Columns & Scrapbook Cards */
+body.theme-peach .scrapbook-card-sri {
+  background-color: rgba(255, 253, 245, 0.95) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(245, 158, 11, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(254, 243, 199, 0.5) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(254, 215, 170, 0.35) 100%) !important;
+  border-color: #FCD34D !important;
+  box-shadow: 0 20px 45px -12px rgba(217, 119, 6, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+body.theme-peach .scrapbook-card-dewi {
+  background-color: rgba(255, 247, 237, 0.95) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(234, 88, 12, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(254, 215, 170, 0.55) 0%, rgba(255, 255, 255, 0.92) 50%, rgba(253, 186, 116, 0.3) 100%) !important;
+  border-color: #FB923C !important;
+  box-shadow: 0 20px 45px -12px rgba(194, 65, 12, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+
+/* Peach Ruled Notebook Memos */
+body.theme-peach .notebook-memo-sri,
+body.theme-peach .notebook-memo-dewi {
+  background-color: #FFFDF5 !important;
+  background-image: 
+    linear-gradient(90deg, transparent 24px, rgba(180, 83, 9, 0.35) 24px, rgba(180, 83, 9, 0.35) 25.5px, transparent 25.5px),
+    linear-gradient(rgba(245, 158, 11, 0.26) 1px, transparent 1px) !important;
+  border-color: #FCD34D !important;
+  box-shadow: 0 8px 20px -4px rgba(245, 158, 11, 0.3) !important;
+}
+body.theme-peach .bio-memo-row {
+  border-color: rgba(253, 230, 138, 0.7) !important;
+}
+body.theme-peach .bio-memo-label {
+  color: #78350F !important;
+}
+body.theme-peach .bio-header-divider {
+  border-color: #FDE68A !important;
+}
+body.theme-peach .bio-name-title {
+  color: #78350F !important;
+}
+body.theme-peach .member-tag-badge {
+  background-color: #FEF3C7 !important;
+  color: #78350F !important;
+}
+body.theme-peach .member-tag-sub {
+  color: #92400E !important;
+}
+body.theme-peach .bio-val-nama {
+  color: #78350F !important;
+}
+body.theme-peach .bio-val-panggilan {
+  color: #B45309 !important;
+}
+body.theme-peach .bio-val-jurusan {
+  color: #B45309 !important;
+}
+body.theme-peach .bio-val-citacita {
+  color: #78350F !important;
+  background-color: #FEF3C7 !important;
+}
+body.theme-peach .bio-val-empty {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  color: #92400E !important;
+  border: 1px solid #FDE68A !important;
+}
+body.theme-peach .bio-moto-box {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #FDE68A !important;
+}
+body.theme-peach .bio-moto-box span {
+  color: #78350F !important;
+}
+body.theme-peach .bio-hobi-label {
+  color: #92400E !important;
+}
+body.theme-peach .bio-hobi-pill {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+}
+body.theme-peach .bio-edit-btn {
+  background-color: #D97706 !important;
+}
+body.theme-peach .bio-edit-btn:hover {
+  background-color: #B45309 !important;
+}
+body.theme-peach .main-polaroid-frame {
+  background-color: #FFFBEB !important;
+  border-color: #FDE68A !important;
+}
+body.theme-peach .main-polaroid-title {
+  color: #78350F !important;
+}
+body.theme-peach .diary-stamp {
+  color: #D97706 !important;
+  border-color: #FCD34D !important;
+}
+body.theme-peach .bio-gallery-section {
+  border-color: #FCD34D !important;
+}
+body.theme-peach .bio-gallery-title {
+  color: #78350F !important;
+}
+body.theme-peach .bio-gallery-sub {
+  color: #92400E !important;
+}
+body.theme-peach .bio-add-polaroid-btn {
+  background-color: #FEF3C7 !important;
+  border-color: #FCD34D !important;
+  color: #78350F !important;
+}
+body.theme-peach .bio-add-polaroid-btn:hover {
+  background-color: #FDE68A !important;
+}
+body.theme-peach .bio-add-polaroid-card {
+  border-color: #FCD34D !important;
+  background-color: rgba(255, 251, 235, 0.6) !important;
+}
+body.theme-peach .bio-add-polaroid-card p,
+body.theme-peach .bio-add-polaroid-card span,
+body.theme-peach .bio-add-polaroid-card i {
+  color: #78350F !important;
+}
+body.theme-peach .polaroid-frame {
+  border-color: #FDE68A !important;
+}
+body.theme-peach .polaroid-caption {
+  color: #78350F !important;
+}
+body.theme-peach .polaroid-sub {
+  color: #92400E !important;
+}
+body.theme-peach .synergy-card {
+  background-color: rgba(255, 251, 235, 0.85) !important;
+  border-color: #FDE68A !important;
+}
+body.theme-peach .synergy-card h4 {
+  color: #78350F !important;
+}
+body.theme-peach #musicPlayerContainer > div {
+  border-color: #FDE68A !important;
+  box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.25) !important;
+}
+
+/* ---------------------------------------------------
+   5. THEME MIDNIGHT STARS 🌙 (Dark Aesthetic & Cyber Cyan)
+   --------------------------------------------------- */
 body.theme-midnight {
   background-color: #0B1120 !important;
   background-image: 
@@ -240,48 +834,166 @@ body.theme-midnight {
 body.theme-midnight h1, body.theme-midnight h2, body.theme-midnight h3 {
   color: #38BDF8 !important;
 }
-body.theme-midnight .profile-card > div {
-  background-color: rgba(15, 23, 42, 0.92) !important;
-  border-color: #1E3A8A !important;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
-}
-body.theme-midnight .scrapbook-card-sri,
-body.theme-midnight .scrapbook-card-dewi {
-  background-color: rgba(15, 23, 42, 0.92) !important;
-  background-image: 
-    radial-gradient(circle at 12px 12px, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px),
-    linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.9) 100%) !important;
-  border-color: #1E3A8A !important;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
-}
-body.theme-midnight .notebook-memo-sri,
-body.theme-midnight .notebook-memo-dewi {
-  background-color: rgba(30, 41, 59, 0.85) !important;
-  background-image: 
-    linear-gradient(90deg, transparent 24px, rgba(56, 189, 248, 0.3) 24px, rgba(56, 189, 248, 0.3) 25.5px, transparent 25.5px),
-    linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px) !important;
-  border-color: #1E3A8A !important;
-  color: #E2E8F0 !important;
-}
-body.theme-midnight .bg-amber-50\/70, body.theme-midnight .bg-pink-50\/50, body.theme-midnight .bg-white\/60 {
-  background-color: rgba(30, 41, 59, 0.75) !important;
-  border-color: #334155 !important;
-  color: #CBD5E1 !important;
-}
-body.theme-midnight .bg-white\/80, body.theme-midnight .bg-white\/70, body.theme-midnight .bg-white\/90 {
-  background-color: rgba(15, 23, 42, 0.8) !important;
-  border-color: #1E293B !important;
-  color: #E2E8F0 !important;
-}
 body.theme-midnight .active-tab {
   background-color: #38BDF8 !important;
   color: #0B1120 !important;
+}
+body.theme-midnight .inactive-tab {
+  color: #94A3B8 !important;
+}
+body.theme-midnight .inactive-tab:hover {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+  color: #38BDF8 !important;
 }
 body.theme-midnight .washi-tape-blue {
   background: repeating-linear-gradient(45deg, #1e3a8a, #1e3a8a 8px, #172554 8px, #172554 16px) !important;
 }
 body.theme-midnight .washi-tape-pink {
   background: repeating-linear-gradient(-45deg, #3730a3, #3730a3 8px, #1e1b4b 8px, #1e1b4b 16px) !important;
+}
+body.theme-midnight .washi-tape-cream {
+  background: repeating-linear-gradient(45deg, #0369a1, #0369a1 8px, #1e3a8a 8px, #1e3a8a 16px) !important;
+}
+
+/* Midnight Biodata Columns & Scrapbook Cards */
+body.theme-midnight .scrapbook-card-sri,
+body.theme-midnight .scrapbook-card-dewi {
+  background-color: rgba(15, 23, 42, 0.94) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(56, 189, 248, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(55, 48, 163, 0.3) 100%) !important;
+  border-color: #1E3A8A !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.75), 0 0 20px rgba(56, 189, 248, 0.12) !important;
+}
+
+/* Midnight Ruled Notebook Memos */
+body.theme-midnight .notebook-memo-sri,
+body.theme-midnight .notebook-memo-dewi {
+  background-color: rgba(30, 41, 59, 0.92) !important;
+  background-image: 
+    linear-gradient(90deg, transparent 24px, rgba(56, 189, 248, 0.4) 24px, rgba(56, 189, 248, 0.4) 25.5px, transparent 25.5px),
+    linear-gradient(rgba(56, 189, 248, 0.18) 1px, transparent 1px) !important;
+  border-color: #1E3A8A !important;
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.6) !important;
+  color: #E2E8F0 !important;
+}
+body.theme-midnight .bio-memo-row {
+  border-color: rgba(51, 65, 85, 0.75) !important;
+}
+body.theme-midnight .bio-memo-label {
+  color: #94A3B8 !important;
+}
+body.theme-midnight .bio-header-divider {
+  border-color: #1E293B !important;
+}
+body.theme-midnight .bio-name-title {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .member-tag-badge {
+  background-color: rgba(30, 58, 138, 0.6) !important;
+  color: #38BDF8 !important;
+}
+body.theme-midnight .member-tag-sub {
+  color: #7DD3FC !important;
+}
+body.theme-midnight .bio-val-nama {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .bio-val-panggilan {
+  color: #7DD3FC !important;
+}
+body.theme-midnight .bio-val-jurusan {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .bio-val-citacita {
+  color: #38BDF8 !important;
+  background-color: rgba(30, 58, 138, 0.7) !important;
+}
+body.theme-midnight .bio-val-empty {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  color: #94A3B8 !important;
+  border: 1px solid #334155 !important;
+}
+body.theme-midnight .bio-moto-box {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  border-color: #1E3A8A !important;
+}
+body.theme-midnight .bio-moto-box span {
+  color: #7DD3FC !important;
+}
+body.theme-midnight .bio-hobi-label {
+  color: #94A3B8 !important;
+}
+body.theme-midnight .bio-hobi-pill {
+  background-color: rgba(30, 58, 138, 0.6) !important;
+  color: #38BDF8 !important;
+}
+body.theme-midnight .bio-edit-btn {
+  background-color: #0284C7 !important;
+}
+body.theme-midnight .bio-edit-btn:hover {
+  background-color: #0369A1 !important;
+}
+body.theme-midnight .main-polaroid-frame {
+  background-color: #0F172A !important;
+  border-color: #1E3A8A !important;
+}
+body.theme-midnight .main-polaroid-title {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .diary-stamp {
+  color: #38BDF8 !important;
+  border-color: #0284C7 !important;
+}
+body.theme-midnight .bio-gallery-section {
+  border-color: #1E3A8A !important;
+}
+body.theme-midnight .bio-gallery-title {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .bio-gallery-sub {
+  color: #94A3B8 !important;
+}
+body.theme-midnight .bio-add-polaroid-btn {
+  background-color: rgba(30, 58, 138, 0.6) !important;
+  border-color: #1E3A8A !important;
+  color: #38BDF8 !important;
+}
+body.theme-midnight .bio-add-polaroid-btn:hover {
+  background-color: #1E3A8A !important;
+}
+body.theme-midnight .bio-add-polaroid-card {
+  border-color: #1E3A8A !important;
+  background-color: rgba(15, 23, 42, 0.6) !important;
+}
+body.theme-midnight .bio-add-polaroid-card p,
+body.theme-midnight .bio-add-polaroid-card span,
+body.theme-midnight .bio-add-polaroid-card i {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .polaroid-frame {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+body.theme-midnight .polaroid-caption {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .polaroid-sub {
+  color: #94A3B8 !important;
+}
+body.theme-midnight .polaroid-frame p {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .polaroid-frame span {
+  color: #94A3B8 !important;
+}
+body.theme-midnight .synergy-card {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  border-color: #1E3A8A !important;
+  color: #CBD5E1 !important;
+}
+body.theme-midnight .synergy-card h4 {
+  color: #38BDF8 !important;
 }
 body.theme-midnight #themeDropdownMenu {
   background-color: rgba(15, 23, 42, 0.95) !important;
@@ -293,6 +1005,61 @@ body.theme-midnight #themeDropdownMenu p {
 body.theme-midnight #themeDropdownMenu span {
   color: #94A3B8 !important;
 }
+body.theme-midnight #musicPlayerContainer > div {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-color: #1E3A8A !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+}
+body.theme-midnight #musicSongTitle {
+  color: #38BDF8 !important;
+}
+body.theme-midnight #musicTimeSmall {
+  color: #94A3B8 !important;
+}
+body.theme-midnight #editModal > div,
+body.theme-midnight #addPolaroidModal > div,
+body.theme-midnight #photoModal > div {
+  background-color: #0F172A !important;
+  border-color: #1E3A8A !important;
+  color: #E2E8F0 !important;
+}
+body.theme-midnight #editModalTitle,
+body.theme-midnight #addPolaroidTitle,
+body.theme-midnight #modalCaption {
+  color: #38BDF8 !important;
+}
+body.theme-midnight #editForm input,
+body.theme-midnight #editForm textarea,
+body.theme-midnight #addPolaroidForm input {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+body.theme-midnight #editForm label,
+body.theme-midnight #addPolaroidForm label {
+  color: #38BDF8 !important;
+}
+
+/* ---------------------------------------------------
+   6. THEME WAVE TO EARTH 🌊 (Default Ocean Blue & Vintage Cream)
+   --------------------------------------------------- */
+body.theme-wave .scrapbook-card-sri {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-color: #BAE6FD !important;
+}
+body.theme-wave .scrapbook-card-dewi {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-color: #FBCFE8 !important;
+}
+body.theme-wave .notebook-memo-sri {
+  background-color: #FFFDF8 !important;
+  border-color: #BAE6FD !important;
+}
+body.theme-wave .notebook-memo-dewi {
+  background-color: #FFFDF9 !important;
+  border-color: #FBCFE8 !important;
+}
+
 
 /* Floating cloud gentle sway animation */
 @keyframes cloudFloat {

@@ -910,8 +910,8 @@ function renderCustomPolaroids(target) {
           </div>
         </div>
         <div class="text-center px-1">
-          <p class="font-cute font-bold ${textHeading} text-xs truncate">${item.caption}</p>
-          <p class="text-[10px] font-mono text-slate-500 truncate">${item.sub}</p>
+          <p class="polaroid-caption font-cute font-bold ${textHeading} text-xs truncate">${item.caption}</p>
+          <p class="polaroid-sub text-[10px] font-mono text-slate-500 truncate">${item.sub}</p>
         </div>
       </div>
     `;
