@@ -141,7 +141,7 @@ body {
 }
 
 /* ===================================================
-   Cute Vinyl Record Music Player Styles
+   Cute Vinyl Record Music Player Styles (Compact Capsule)
    =================================================== */
 @keyframes spinDisc {
   from {
@@ -162,22 +162,22 @@ body {
 
 .vinyl-grooves {
   background: radial-gradient(circle at center, #1e293b 0%, #0f172a 20%, #1e293b 25%, #0f172a 45%, #1e293b 50%, #0f172a 75%, #020617 100%);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25), inset 0 0 6px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2), inset 0 0 4px rgba(255, 255, 255, 0.15);
 }
 
 /* Equalizer soundwave bars */
 @keyframes bounceBar {
   0%, 100% {
-    height: 4px;
+    height: 3px;
   }
   50% {
-    height: 16px;
+    height: 12px;
   }
 }
 
 .equalizer-bar {
-  width: 3px;
-  height: 4px;
+  width: 2.5px;
+  height: 3px;
   border-radius: 2px;
   background-color: #2B5B84;
   transition: height 0.2s ease;
@@ -192,14 +192,20 @@ body {
 .playing .equalizer-bar:nth-child(3) {
   animation: bounceBar 0.95s ease-in-out infinite 0.4s;
 }
-.playing .equalizer-bar:nth-child(4) {
-  animation: bounceBar 0.7s ease-in-out infinite 0.15s;
-}
-.playing .equalizer-bar:nth-child(5) {
-  animation: bounceBar 0.85s ease-in-out infinite 0.35s;
+
+.status-playing {
+  background-color: #10b981 !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.35);
+  animation: pulseDot 1.6s infinite;
 }
 
-/* Floating Music Player subtle bounce */
-.music-widget-shadow {
-  box-shadow: 0 10px 30px -5px rgba(22, 50, 79, 0.18), 0 4px 10px -2px rgba(22, 50, 79, 0.1);
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
 }

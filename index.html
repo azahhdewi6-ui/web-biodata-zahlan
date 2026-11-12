@@ -661,9 +661,9 @@
   </div>
 
   <!-- ===================================================
-       Cute Aesthetic Floating Music Player Widget
+       Cute Aesthetic Floating Mini Music Player (Compact Capsule)
        =================================================== -->
-  <div id="musicPlayerContainer" class="fixed bottom-5 left-5 z-40 select-none">
+  <div id="musicPlayerContainer" class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 select-none">
     
     <!-- Audio Element -->
     <audio id="bgAudio" loop preload="auto">
@@ -671,126 +671,53 @@
       Browsermu tidak mendukung pemutar audio.
     </audio>
 
-    <!-- Cute Hint Bubble (appears on load, hidden once played) -->
-    <div id="musicHint" class="absolute -top-10 left-0 bg-white/95 text-aesthetic-deepblue px-3 py-1.5 rounded-2xl shadow-lg border border-sky-200 text-[11px] font-cute flex items-center gap-1.5 animate-bounce whitespace-nowrap">
-      <span>✨</span>
-      <span>Klik untuk putar lagu estetik!</span>
-      <button onclick="document.getElementById('musicHint').remove()" class="ml-1 text-slate-400 hover:text-slate-600 text-xs">&times;</button>
-    </div>
-
-    <!-- 1. Minimized Floating Button (Vinyl Disc Button) -->
-    <div id="musicWidgetMinimized" class="hidden">
-      <button onclick="toggleMusicMinimize()" class="group relative flex items-center justify-center w-14 h-14 rounded-full vinyl-grooves border-2 border-amber-100 shadow-xl hover:scale-110 active:scale-95 transition-transform" title="Buka Pemutar Musik">
-        <!-- Center Vinyl Label with Album Art -->
-        <div id="vinylDiscMini" class="w-7 h-7 rounded-full overflow-hidden border border-white/40 ring-1 ring-amber-300">
-          <img src="assets/th144.jpg" alt="Album" class="w-full h-full object-cover">
-        </div>
-        <!-- Little Music Icon overlay -->
-        <div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-aesthetic-deepblue text-white flex items-center justify-center text-[10px] shadow-sm">
-          <i class="fa-solid fa-music"></i>
-        </div>
-      </button>
-    </div>
-
-    <!-- 2. Expanded Floating Music Card (Pastel Scrapbook Player) -->
-    <div id="musicWidgetExpanded" class="bg-white/95 backdrop-blur-xl border-2 border-sky-200/90 rounded-3xl p-4 sm:p-5 music-widget-shadow max-w-[340px] sm:max-w-sm w-full relative transition-all duration-300">
+    <!-- Compact Floating Capsule Card -->
+    <div class="relative overflow-hidden flex items-center gap-2.5 px-3 py-2 rounded-full bg-white/95 backdrop-blur-md border border-sky-200/90 shadow-lg shadow-sky-950/10 hover:shadow-xl transition-all duration-300 group">
       
-      <!-- Mini Washi Tape on top -->
-      <div class="absolute -top-2.5 left-10 w-24 h-5 washi-tape-cream rounded-xs opacity-80 pointer-events-none"></div>
-
-      <!-- Card Header -->
-      <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-sky-100">
-        <div class="flex items-center gap-2">
-          <span class="text-sm">🎧</span>
-          <div>
-            <h4 class="font-cute font-bold text-sky-950 text-xs sm:text-sm leading-tight">Music Box Tim RPL</h4>
-            <span class="text-[10px] font-mono text-aesthetic-muted">Wave to Earth & Chill Vibes</span>
+      <!-- Mini Spinning Vinyl Disc -->
+      <div class="relative cursor-pointer shrink-0" onclick="toggleMusic()" title="Klik untuk Putar / Jeda Lagu">
+        <div id="vinylDisc" class="w-9 h-9 rounded-full vinyl-grooves flex items-center justify-center relative shadow-xs">
+          <!-- Album Art -->
+          <div class="w-4 h-4 rounded-full overflow-hidden border border-white/80 ring-1 ring-sky-300">
+            <img src="assets/th144.jpg" alt="Disc" class="w-full h-full object-cover">
           </div>
+          <!-- Center Spindle -->
+          <div class="absolute w-1 h-1 rounded-full bg-slate-900"></div>
         </div>
-
-        <div class="flex items-center gap-1.5">
-          <!-- Minimize Button -->
-          <button onclick="toggleMusicMinimize()" class="w-6 h-6 rounded-full bg-cream-200 hover:bg-cream-300 text-slate-600 flex items-center justify-center text-xs transition-colors" title="Perkecil Pemutar">
-            <i class="fa-solid fa-minus text-[10px]"></i>
-          </button>
-        </div>
+        <!-- Status Dot indicator -->
+        <span id="musicStatusDot" class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-slate-300 ring-2 ring-white transition-colors"></span>
       </div>
 
-      <!-- Card Body: Vinyl + Info + Play Button -->
-      <div class="flex items-center gap-3.5 mb-3">
-        <!-- Spinning Vinyl Disc -->
-        <div class="relative cursor-pointer shrink-0" onclick="toggleMusic()" title="Klik untuk Putar / Jeda">
-          <div id="vinylDisc" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full vinyl-grooves flex items-center justify-center p-2 relative shadow-md">
-            <!-- Center Hole and Album Art -->
-            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border-2 border-cream-100 ring-2 ring-sky-300/60">
-              <img src="assets/th144.jpg" alt="Wave to Earth Art" class="w-full h-full object-cover">
-            </div>
-            <!-- Center Spindle Hole -->
-            <div class="absolute w-1.5 h-1.5 rounded-full bg-slate-900 border border-white"></div>
-          </div>
-          <!-- Cute Play overlay badge -->
-          <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-aesthetic-blue text-white flex items-center justify-center text-[9px] shadow-sm">
-            <i id="miniStatusIcon" class="fa-solid fa-music"></i>
-          </div>
-        </div>
-
-        <!-- Track Info & Controls -->
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center justify-between gap-1">
-            <p id="musicSongTitle" class="font-cute font-bold text-sky-950 text-xs sm:text-sm truncate" title="Wave to Earth - Seasons">
-              Wave to Earth - Seasons
-            </p>
-            <!-- Animated Equalizer Bars -->
-            <div id="musicEqualizer" class="flex items-end gap-0.5 h-4 opacity-30 shrink-0">
-              <span class="equalizer-bar"></span>
-              <span class="equalizer-bar"></span>
-              <span class="equalizer-bar"></span>
-              <span class="equalizer-bar"></span>
-              <span class="equalizer-bar"></span>
-            </div>
-          </div>
-          
-          <p id="musicArtist" class="text-[10px] font-mono text-aesthetic-muted truncate mb-1.5">
-            Lofi Chill Beat • Lagu Santai
+      <!-- Track Info + Mini Equalizer -->
+      <div class="flex flex-col justify-center min-w-[100px] max-w-[140px] sm:max-w-[160px] cursor-pointer" onclick="toggleMusic()" title="Klik untuk Putar / Jeda">
+        <div class="flex items-center gap-1.5">
+          <p id="musicSongTitle" class="font-cute font-bold text-sky-950 text-xs truncate leading-tight">
+            Wave to Earth • Lofi
           </p>
-
-          <!-- Interactive Progress Bar -->
-          <div class="space-y-1">
-            <div id="musicProgressContainer" onclick="seekAudio(event)" class="w-full h-2 rounded-full bg-cream-200/90 overflow-hidden cursor-pointer relative group">
-              <div id="musicProgressBar" class="h-full bg-gradient-to-r from-aesthetic-softblue to-aesthetic-blue rounded-full w-0 transition-all duration-100"></div>
-            </div>
-            <div class="flex justify-between text-[9px] font-mono text-slate-500">
-              <span id="musicCurrentTime">0:00</span>
-              <span id="musicDuration">0:00</span>
-            </div>
+          <!-- Mini Equalizer Bars -->
+          <div id="musicEqualizer" class="flex items-end gap-0.5 h-3 opacity-30 shrink-0">
+            <span class="equalizer-bar"></span>
+            <span class="equalizer-bar"></span>
+            <span class="equalizer-bar"></span>
           </div>
         </div>
-
-        <!-- Big Play / Pause Button -->
-        <button id="playPauseBtn" onclick="toggleMusic()" class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-aesthetic-deepblue to-aesthetic-blue hover:from-aesthetic-blue hover:to-sky-600 text-white flex items-center justify-center shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95 shrink-0" title="Putar / Jeda Lagu">
-          <i id="playIcon" class="fa-solid fa-play text-sm ml-0.5"></i>
-        </button>
+        <span id="musicTimeSmall" class="text-[9px] font-mono text-slate-400">0:00 / 0:00</span>
       </div>
 
-      <!-- Controls Footer: Volume & Custom MP3 Input -->
-      <div class="flex items-center justify-between pt-2 border-t border-sky-100/80 text-xs">
-        
-        <!-- Volume Slider & Mute -->
-        <div class="flex items-center gap-1.5">
-          <button id="muteBtn" onclick="toggleMute()" class="text-slate-500 hover:text-slate-800 transition-colors" title="Bisukan / Nyalakan Suara">
-            <i id="muteIcon" class="fa-solid fa-volume-high text-xs"></i>
-          </button>
-          <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.75" oninput="setVolume(this.value)" class="w-14 sm:w-16 h-1.5 accent-aesthetic-blue bg-cream-200 rounded-lg cursor-pointer">
-        </div>
+      <!-- Play / Pause Mini Button -->
+      <button id="playPauseBtn" onclick="toggleMusic()" class="w-7 h-7 rounded-full bg-aesthetic-deepblue hover:bg-aesthetic-blue text-white flex items-center justify-center text-xs shadow-xs transition-transform hover:scale-105 active:scale-95 shrink-0" title="Putar / Jeda Musik">
+        <i id="playIcon" class="fa-solid fa-play text-[10px] ml-0.5"></i>
+      </button>
 
-        <!-- Custom Upload & Track Preset -->
-        <div class="flex items-center gap-1.5">
-          <input type="file" id="customAudioInput" accept="audio/*" class="hidden" onchange="handleCustomMusic(event)">
-          <button onclick="document.getElementById('customAudioInput').click()" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 font-cute text-[11px] font-bold transition-all hover:scale-105" title="Unggah file MP3 favoritmu dari komputer">
-            <span>📁</span> Ganti Lagu
-          </button>
-        </div>
+      <!-- Mini Custom MP3 Upload Button -->
+      <input type="file" id="customAudioInput" accept="audio/*" class="hidden" onchange="handleCustomMusic(event)">
+      <button onclick="document.getElementById('customAudioInput').click()" class="w-7 h-7 rounded-full bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-800 flex items-center justify-center text-[10px] transition-transform hover:scale-105 active:scale-95 shrink-0" title="Ganti Lagu (Pilih MP3 Sendiri)">
+        <i class="fa-solid fa-folder-open"></i>
+      </button>
 
+      <!-- Subtle Progress Bar along bottom edge -->
+      <div id="musicProgressContainer" onclick="seekAudio(event)" class="absolute bottom-0 left-0 right-0 h-1 bg-sky-100 cursor-pointer overflow-hidden" title="Klik untuk geser durasi">
+        <div id="musicProgressBar" class="h-full bg-aesthetic-softblue w-0 transition-all duration-100"></div>
       </div>
 
     </div>

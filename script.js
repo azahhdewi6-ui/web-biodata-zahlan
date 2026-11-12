@@ -462,24 +462,19 @@ function animateParticles() {
 animateParticles();
 
 // ===================================================
-// Cute Vinyl Music Player Logic
+// Cute Mini Vinyl Music Player Logic (Compact Capsule)
 // ===================================================
 const bgAudio = document.getElementById('bgAudio');
 const playPauseBtn = document.getElementById('playPauseBtn');
 const playIcon = document.getElementById('playIcon');
 const headerPlayIcon = document.getElementById('headerPlayIcon');
 const headerPlayText = document.getElementById('headerPlayText');
-const miniStatusIcon = document.getElementById('miniStatusIcon');
 const vinylDisc = document.getElementById('vinylDisc');
-const vinylDiscMini = document.getElementById('vinylDiscMini');
 const musicEqualizer = document.getElementById('musicEqualizer');
 const musicProgressBar = document.getElementById('musicProgressBar');
-const musicCurrentTime = document.getElementById('musicCurrentTime');
-const musicDuration = document.getElementById('musicDuration');
-const volumeSlider = document.getElementById('volumeSlider');
-const muteIcon = document.getElementById('muteIcon');
+const musicTimeSmall = document.getElementById('musicTimeSmall');
+const musicStatusDot = document.getElementById('musicStatusDot');
 const musicSongTitle = document.getElementById('musicSongTitle');
-const musicArtist = document.getElementById('musicArtist');
 
 function formatAudioTime(seconds) {
   if (isNaN(seconds) || seconds < 0) return '0:00';
@@ -499,26 +494,19 @@ function updatePlayState(isPlaying) {
       headerPlayIcon.classList.add('fa-pause');
     }
     if (headerPlayText) headerPlayText.innerText = 'Jeda Lagu ⏸️';
-    if (miniStatusIcon) {
-      miniStatusIcon.classList.remove('fa-music');
-      miniStatusIcon.classList.add('fa-pause');
-    }
 
     if (vinylDisc) {
       vinylDisc.classList.add('spinning');
       vinylDisc.classList.remove('paused');
     }
-    if (vinylDiscMini) {
-      vinylDiscMini.classList.add('spinning');
-      vinylDiscMini.classList.remove('paused');
-    }
     if (musicEqualizer) {
       musicEqualizer.classList.remove('opacity-30');
       musicEqualizer.classList.add('playing');
     }
-
-    const hint = document.getElementById('musicHint');
-    if (hint) hint.remove();
+    if (musicStatusDot) {
+      musicStatusDot.classList.add('status-playing');
+      musicStatusDot.classList.remove('bg-slate-300');
+    }
   } else {
     if (playIcon) {
       playIcon.classList.remove('fa-pause');
@@ -529,16 +517,15 @@ function updatePlayState(isPlaying) {
       headerPlayIcon.classList.add('fa-play');
     }
     if (headerPlayText) headerPlayText.innerText = 'Putar Lagu 🎵';
-    if (miniStatusIcon) {
-      miniStatusIcon.classList.remove('fa-pause');
-      miniStatusIcon.classList.add('fa-music');
-    }
 
     if (vinylDisc) vinylDisc.classList.add('paused');
-    if (vinylDiscMini) vinylDiscMini.classList.add('paused');
     if (musicEqualizer) {
       musicEqualizer.classList.add('opacity-30');
       musicEqualizer.classList.remove('playing');
+    }
+    if (musicStatusDot) {
+      musicStatusDot.classList.remove('status-playing');
+      musicStatusDot.classList.add('bg-slate-300');
     }
   }
 }
@@ -549,7 +536,7 @@ function toggleMusic() {
     bgAudio.play().then(() => {
       updatePlayState(true);
     }).catch(err => {
-      console.warn('Autoplay prevented or error:', err);
+      console.warn('Playback prevented or error:', err);
       copyText('', 'Klik lagi untuk memutar musik 🎵');
     });
   } else {
@@ -566,19 +553,19 @@ if (bgAudio) {
     if (!isNaN(bgAudio.duration) && bgAudio.duration > 0) {
       const pct = (bgAudio.currentTime / bgAudio.duration) * 100;
       if (musicProgressBar) musicProgressBar.style.width = `${pct}%`;
-      if (musicCurrentTime) musicCurrentTime.innerText = formatAudioTime(bgAudio.currentTime);
-      if (musicDuration) musicDuration.innerText = formatAudioTime(bgAudio.duration);
+      if (musicTimeSmall) {
+        musicTimeSmall.innerText = `${formatAudioTime(bgAudio.currentTime)} / ${formatAudioTime(bgAudio.duration)}`;
+      }
     }
   });
 
   bgAudio.addEventListener('loadedmetadata', () => {
-    if (musicDuration && !isNaN(bgAudio.duration)) {
-      musicDuration.innerText = formatAudioTime(bgAudio.duration);
+    if (musicTimeSmall && !isNaN(bgAudio.duration)) {
+      musicTimeSmall.innerText = `0:00 / ${formatAudioTime(bgAudio.duration)}`;
     }
   });
 
   bgAudio.addEventListener('ended', () => {
-    // If loop is on, it will loop automatically. If not, reset
     if (!bgAudio.loop) {
       updatePlayState(false);
       if (musicProgressBar) musicProgressBar.style.width = '0%';
@@ -596,47 +583,6 @@ function seekAudio(e) {
   bgAudio.currentTime = ratio * bgAudio.duration;
 }
 
-function setVolume(val) {
-  if (!bgAudio) return;
-  bgAudio.volume = val;
-  bgAudio.muted = false;
-  if (muteIcon) {
-    if (val == 0) {
-      muteIcon.className = 'fa-solid fa-volume-xmark text-xs text-rose-500';
-    } else if (val < 0.5) {
-      muteIcon.className = 'fa-solid fa-volume-low text-xs';
-    } else {
-      muteIcon.className = 'fa-solid fa-volume-high text-xs';
-    }
-  }
-}
-
-function toggleMute() {
-  if (!bgAudio) return;
-  bgAudio.muted = !bgAudio.muted;
-  if (muteIcon) {
-    if (bgAudio.muted) {
-      muteIcon.className = 'fa-solid fa-volume-xmark text-xs text-rose-500';
-    } else {
-      setVolume(volumeSlider ? volumeSlider.value : 0.75);
-    }
-  }
-}
-
-function toggleMusicMinimize() {
-  const expanded = document.getElementById('musicWidgetExpanded');
-  const minimized = document.getElementById('musicWidgetMinimized');
-  if (!expanded || !minimized) return;
-
-  if (expanded.classList.contains('hidden')) {
-    expanded.classList.remove('hidden');
-    minimized.classList.add('hidden');
-  } else {
-    expanded.classList.add('hidden');
-    minimized.classList.remove('hidden');
-  }
-}
-
 function handleCustomMusic(e) {
   const file = e.target.files && e.target.files[0];
   if (!file || !bgAudio) return;
@@ -648,7 +594,6 @@ function handleCustomMusic(e) {
 
     const cleanName = file.name.replace(/\.[^/.]+$/, "");
     if (musicSongTitle) musicSongTitle.innerText = cleanName;
-    if (musicArtist) musicArtist.innerText = 'Lagu Pilihan Pribadi 🎧';
 
     bgAudio.play().then(() => {
       updatePlayState(true);
