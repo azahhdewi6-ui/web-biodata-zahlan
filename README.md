@@ -9,7 +9,7 @@ Website biodata tim estetik bernuansa **Blue & Cream** yang terinspirasi oleh pa
 - **Biodata Lengkap:**
   - Hobi (*Journaling* untuk Sri, *Musik & Menyanyi* untuk Dewi)
   - Cita-cita (*Aktor / Actress* untuk Sri, *Perawat / Nurse* untuk Dewi)
-  - Tombol langsung ke Instagram (`@sriwulandnii`, `@azahh-ajaa`) dan TikTok (`@azahhe_06`)
+  - Tombol langsung ke Instagram (`@sriwlandnii`, `@azahh-ajaa`) dan TikTok (`@azahhe_06`)
   - Fitur salin motto & username satu klik dengan toast notification
 - **Aesthetic Floating Particles:** Animasi partikel melayang lembut di latar belakang yang menenangkan dan ringan.
 - **Wave to Earth Moodboard:** Aksen vintage poster dan cover art indie.
