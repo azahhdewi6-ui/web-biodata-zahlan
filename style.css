@@ -1018,7 +1018,8 @@ body.theme-midnight #musicTimeSmall {
 }
 body.theme-midnight #editModal > div,
 body.theme-midnight #addPolaroidModal > div,
-body.theme-midnight #photoModal > div {
+body.theme-midnight #photoModal > div,
+body.theme-midnight #syncModal > div {
   background-color: #0F172A !important;
   border-color: #1E3A8A !important;
   color: #E2E8F0 !important;
@@ -1109,13 +1110,36 @@ body.theme-wave .notebook-memo-dewi {
 }
 
 /* Modal Open / Close Transition */
-#photoModal.show, #editModal.show, #addPolaroidModal.show {
+#photoModal.show, #editModal.show, #addPolaroidModal.show, #syncModal.show {
   display: flex !important;
   opacity: 1 !important;
 }
 
-#photoModal.show > div, #editModal.show > div, #addPolaroidModal.show > div {
+#photoModal.show > div, #editModal.show > div, #addPolaroidModal.show > div, #syncModal.show > div {
   transform: scale(1) !important;
+}
+
+/* Mobile & HP Optimization (Tampilan HP & PC Sama Proporsional) */
+@media (max-width: 640px) {
+  body {
+    background-size: 20px 20px, 20px 20px, 20px 20px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100% !important;
+  }
+  .scrapbook-card-sri, .scrapbook-card-dewi {
+    padding: 1.25rem 1rem !important;
+    border-radius: 1.5rem !important;
+  }
+  .notebook-memo-sri, .notebook-memo-dewi {
+    padding: 1.1rem 0.95rem !important;
+    border-radius: 1.25rem !important;
+  }
+  .bio-memo-row {
+    padding-bottom: 0.45rem !important;
+  }
+  #musicPlayerContainer {
+    bottom: 12px !important;
+    left: 10px !important;
+    max-width: calc(100vw - 20px) !important;
+  }
 }
 
 /* Polaroid scrapbook card hover & tilt */

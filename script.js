@@ -208,6 +208,9 @@ function saveBio(target, data) {
     localStorage.setItem('biodata_' + target, JSON.stringify(data));
   } catch (e) {}
   renderBio(target);
+  if (typeof syncBioToCloud === 'function') {
+    syncBioToCloud(target, data);
+  }
 }
 
 function renderBio(target) {
@@ -851,6 +854,9 @@ function saveCustomPolaroid(e) {
     const existing = JSON.parse(localStorage.getItem(key) || '[]');
     existing.push(newPolaroid);
     localStorage.setItem(key, JSON.stringify(existing));
+    if (typeof syncPolaroidsToCloud === 'function') {
+      syncPolaroidsToCloud(target, existing);
+    }
   } catch (err) {
     console.error('Failed to save to localStorage:', err);
   }
@@ -869,6 +875,9 @@ function deleteCustomPolaroid(target, id, e) {
     const existing = JSON.parse(localStorage.getItem(key) || '[]');
     const filtered = existing.filter(p => p.id !== id);
     localStorage.setItem(key, JSON.stringify(filtered));
+    if (typeof syncPolaroidsToCloud === 'function') {
+      syncPolaroidsToCloud(target, filtered);
+    }
   } catch (err) {}
 
   renderCustomPolaroids(target);
@@ -923,3 +932,243 @@ function renderCustomPolaroids(target) {
 // Initial render for custom polaroids
 renderCustomPolaroids('sri');
 renderCustomPolaroids('dewi');
+
+// ===================================================
+// FIREBASE REALTIME INITIALIZATION & MULTI-DEVICE SYNC
+// Project: biodata-zahlan
+// ===================================================
+const firebaseConfig = {
+  apiKey: "AIzaSyCHuajYz1fqwWZ_ESuKw4l1zUILwu_pyiQ",
+  authDomain: "biodata-zahlan.firebaseapp.com",
+  projectId: "biodata-zahlan",
+  storageBucket: "biodata-zahlan.firebasestorage.app",
+  messagingSenderId: "364095332824",
+  appId: "1:364095332824:web:4779ecc492eb65c2f612ad"
+};
+
+let fbApp = null;
+let fbDb = null;
+let fbRtdb = null;
+let isRemoteUpdating = false;
+
+// Open Sync Modal
+function openSyncModal() {
+  const modal = document.getElementById('syncModal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  setTimeout(() => modal.classList.add('show'), 10);
+}
+
+// Close Sync Modal
+function closeSyncModal() {
+  const modal = document.getElementById('syncModal');
+  if (!modal) return;
+  modal.classList.remove('show');
+  setTimeout(() => {
+    modal.classList.remove('flex');
+    modal.classList.add('hidden');
+  }, 300);
+}
+
+// Update UI status pill & modal
+function updateRealtimeStatus(state, label) {
+  const dot = document.getElementById('realtimeStatusDot');
+  const text = document.getElementById('realtimeStatusLabel');
+  const modalBadge = document.getElementById('syncModalStatusBadge');
+  const modalText = document.getElementById('syncModalStatusText');
+
+  if (text) text.innerText = label;
+  if (modalText) modalText.innerText = label;
+
+  if (dot) {
+    if (state === 'online') {
+      dot.className = 'w-2 h-2 rounded-full bg-emerald-500 animate-pulse';
+    } else if (state === 'connecting') {
+      dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
+    } else if (state === 'setup') {
+      dot.className = 'w-2 h-2 rounded-full bg-amber-500';
+    } else {
+      dot.className = 'w-2 h-2 rounded-full bg-sky-400';
+    }
+  }
+
+  if (modalBadge) {
+    if (state === 'online') {
+      modalBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-cute font-bold';
+    } else if (state === 'connecting' || state === 'setup') {
+      modalBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-cute font-bold';
+    } else {
+      modalBadge.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-cute font-bold';
+    }
+  }
+}
+
+// Sync single bio target to cloud
+function syncBioToCloud(target, data) {
+  if (isRemoteUpdating) return;
+  if (fbDb) {
+    fbDb.collection('biodata').doc(target).set(data, { merge: true })
+      .then(() => {
+        updateRealtimeStatus('online', 'Tersimpan di Cloud ✨');
+      })
+      .catch((err) => {
+        console.warn(`Firestore save ${target} bio:`, err.message);
+        handleFirebaseError(err);
+      });
+  }
+}
+
+// Sync polaroids array to cloud
+function syncPolaroidsToCloud(target, polaroidsList) {
+  if (isRemoteUpdating) return;
+  if (fbDb) {
+    fbDb.collection('polaroids').doc(target).set({ items: polaroidsList })
+      .then(() => {
+        updateRealtimeStatus('online', 'Foto Tersimpan ✨');
+      })
+      .catch((err) => {
+        console.warn(`Firestore save ${target} polaroids:`, err.message);
+      });
+  }
+}
+
+// Error handling & guide
+function handleFirebaseError(err) {
+  if (err && (err.code === 'permission-denied' || (err.message && (err.message.includes('permission') || err.message.includes('NOT_FOUND'))))) {
+    updateRealtimeStatus('setup', 'Setup Cloud ⚙️');
+  } else {
+    updateRealtimeStatus('offline', 'Mode Lokal 📱');
+  }
+}
+
+// Manual force sync trigger
+function forceSyncData() {
+  copyText('', 'Menyinkronkan data HP & PC...');
+  if (fbDb) {
+    syncBioToCloud('sri', getBio('sri'));
+    syncBioToCloud('dewi', getBio('dewi'));
+    try {
+      const sriP = JSON.parse(localStorage.getItem('zahlan_custom_polaroids_sri') || '[]');
+      const dewiP = JSON.parse(localStorage.getItem('zahlan_custom_polaroids_dewi') || '[]');
+      if (sriP.length) syncPolaroidsToCloud('sri', sriP);
+      if (dewiP.length) syncPolaroidsToCloud('dewi', dewiP);
+    } catch (e) {}
+    setTimeout(() => {
+      copyText('', 'Data HP & PC berhasil disinkronkan! ✨');
+    }, 600);
+  } else {
+    setTimeout(() => {
+      copyText('', 'Data tersimpan di penyimpanan perangkat ✨');
+    }, 400);
+  }
+}
+
+// Initialize Firebase & Setup Listeners
+function initFirebase() {
+  if (typeof firebase === 'undefined') {
+    console.warn('Firebase SDK compat tidak ditemukan, menggunakan penyimpanan lokal.');
+    updateRealtimeStatus('offline', 'Mode Lokal 📱');
+    return;
+  }
+
+  try {
+    if (!firebase.apps.length) {
+      fbApp = firebase.initializeApp(firebaseConfig);
+    } else {
+      fbApp = firebase.app();
+    }
+
+    try {
+      fbDb = firebase.firestore();
+      fbDb.enablePersistence({ synchronizeTabs: true }).catch(() => {});
+    } catch (e) {
+      console.warn('Firestore notice:', e);
+    }
+
+    updateRealtimeStatus('connecting', 'Menghubungkan...');
+    setupFirebaseListeners();
+  } catch (err) {
+    console.error('Inisialisasi Firebase gagal:', err);
+    updateRealtimeStatus('offline', 'Mode Lokal 📱');
+  }
+}
+
+function setupFirebaseListeners() {
+  if (!fbDb) return;
+
+  // 1. Sri Biodata Realtime Listener
+  fbDb.collection('biodata').doc('sri').onSnapshot((doc) => {
+    if (doc.exists) {
+      const data = doc.data();
+      if (data) {
+        const local = getBio('sri');
+        if (JSON.stringify(data) !== JSON.stringify(local)) {
+          isRemoteUpdating = true;
+          localStorage.setItem('biodata_sri', JSON.stringify({ ...defaultBios.sri, ...data }));
+          renderBio('sri');
+          isRemoteUpdating = false;
+        }
+      }
+      updateRealtimeStatus('online', 'Realtime Aktif');
+    } else {
+      syncBioToCloud('sri', getBio('sri'));
+    }
+  }, (err) => {
+    handleFirebaseError(err);
+  });
+
+  // 2. Dewi Biodata Realtime Listener
+  fbDb.collection('biodata').doc('dewi').onSnapshot((doc) => {
+    if (doc.exists) {
+      const data = doc.data();
+      if (data) {
+        const local = getBio('dewi');
+        if (JSON.stringify(data) !== JSON.stringify(local)) {
+          isRemoteUpdating = true;
+          localStorage.setItem('biodata_dewi', JSON.stringify({ ...defaultBios.dewi, ...data }));
+          renderBio('dewi');
+          isRemoteUpdating = false;
+        }
+      }
+      updateRealtimeStatus('online', 'Realtime Aktif');
+    } else {
+      syncBioToCloud('dewi', getBio('dewi'));
+    }
+  }, (err) => {
+    handleFirebaseError(err);
+  });
+
+  // 3. Sri Custom Polaroids Realtime Listener
+  fbDb.collection('polaroids').doc('sri').onSnapshot((doc) => {
+    if (doc.exists) {
+      const data = doc.data();
+      if (data && Array.isArray(data.items)) {
+        localStorage.setItem('zahlan_custom_polaroids_sri', JSON.stringify(data.items));
+        renderCustomPolaroids('sri');
+      }
+    }
+  }, (err) => {
+    console.warn('Sri polaroid listener:', err.message);
+  });
+
+  // 4. Dewi Custom Polaroids Realtime Listener
+  fbDb.collection('polaroids').doc('dewi').onSnapshot((doc) => {
+    if (doc.exists) {
+      const data = doc.data();
+      if (data && Array.isArray(data.items)) {
+        localStorage.setItem('zahlan_custom_polaroids_dewi', JSON.stringify(data.items));
+        renderCustomPolaroids('dewi');
+      }
+    }
+  }, (err) => {
+    console.warn('Dewi polaroid listener:', err.message);
+  });
+}
+
+// Run Firebase initialization after DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFirebase);
+} else {
+  initFirebase();
+}

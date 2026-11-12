@@ -199,6 +199,13 @@
           </div>
         </div>
 
+        <!-- Realtime Firebase Sync Pill (HP & PC) -->
+        <button id="realtimeStatusBtn" type="button" onclick="openSyncModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-cute font-bold shadow-2xs transition-all hover:scale-105 active:scale-95" title="Status Realtime Firebase: Sinkronisasi HP & PC">
+          <span id="realtimeStatusDot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span id="realtimeStatusLabel" class="hidden sm:inline">Realtime Sync ☁️</span>
+          <span class="sm:hidden text-[10px]">Sync ☁️</span>
+        </button>
+
         <!-- Music Button -->
         <button onclick="toggleMusic()" class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-aesthetic-deepblue hover:bg-aesthetic-blue text-white text-xs font-cute font-bold shadow-xs transition-all hover:scale-105 active:scale-95" title="Putar atau Jeda Musik">
           <i id="headerPlayIcon" class="fa-solid fa-play text-[11px]"></i>
@@ -1029,6 +1036,68 @@
     </div>
   </div>
 
+  <!-- Modal for Realtime Sync Status (HP & PC) -->
+  <div id="syncModal" class="fixed inset-0 z-50 bg-aesthetic-deepblue/80 backdrop-blur-md hidden items-center justify-center p-4 transition-all opacity-0" onclick="closeSyncModal()">
+    <div class="relative max-w-md w-full bg-cream-50 rounded-3xl p-6 sm:p-7 shadow-2xl border border-white/30 transform scale-95 transition-transform max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-3 mb-4 border-b border-aesthetic-warmtext/10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm shadow-2xs">
+            ☁️
+          </div>
+          <div>
+            <h3 class="font-cute font-bold text-lg text-aesthetic-deepblue leading-tight">Sinkronisasi Realtime</h3>
+            <p class="text-[11px] font-mono text-aesthetic-muted">Koneksi Otomatis HP & Laptop (PC)</p>
+          </div>
+        </div>
+        <button onclick="closeSyncModal()" class="w-8 h-8 rounded-full bg-cream-200 hover:bg-cream-300 text-aesthetic-warmtext flex items-center justify-center text-sm transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Sync Status Box -->
+      <div class="p-3.5 rounded-2xl bg-white border border-emerald-200 shadow-2xs mb-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-cute text-slate-600 font-bold">Status Cloud:</span>
+          <span id="syncModalStatusBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-cute font-bold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="syncModalStatusText">Realtime Aktif</span>
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-1 border-t border-slate-100">
+          <span>Firebase Project:</span>
+          <span class="font-bold text-sky-800">biodata-zahlan</span>
+        </div>
+        <div class="flex items-center justify-between text-xs font-mono text-slate-500">
+          <span>Tersinkron di:</span>
+          <span class="font-bold text-slate-700">HP & PC Seketika ✨</span>
+        </div>
+      </div>
+
+      <!-- Explanation -->
+      <div class="text-xs font-quicksand text-slate-600 space-y-2 leading-relaxed mb-5">
+        <p>
+          📱 <strong>Tampilan HP & PC Sama:</strong> Desain scrapbook, memo notebook, dan tata letak disesuaikan otomatis agar terlihat rapi dan proporsional di layar HP maupun laptop.
+        </p>
+        <p>
+          ⚡ <strong>Realtime Sinkron:</strong> Saat kamu atau temanmu mengisi biodata atau mengunggah foto polaroid baru, datanya langsung terupdate otomatis di semua layar tanpa perlu refresh!
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-end gap-2 pt-3 border-t border-aesthetic-warmtext/10">
+        <button type="button" onclick="forceSyncData()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-cute font-bold text-xs shadow-xs transition-all hover:scale-105 active:scale-95">
+          <i class="fa-solid fa-rotate mr-1"></i> Sinkronkan Sekarang
+        </button>
+        <button type="button" onclick="closeSyncModal()" class="px-4 py-2 rounded-xl bg-cream-200 hover:bg-cream-300 text-slate-700 font-cute text-xs transition-colors">
+          Tutup
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Toast Notification for Copying -->
   <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-aesthetic-deepblue text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-aesthetic-softblue/30 text-xs font-mono pointer-events-none">
     <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
@@ -1100,6 +1169,11 @@
     </div>
 
   </div>
+
+  <!-- Firebase SDK (Compat Version for seamless realtime sync across mobile & PC) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
   <!-- Custom Scripts -->
   <script src="script.js"></script>
