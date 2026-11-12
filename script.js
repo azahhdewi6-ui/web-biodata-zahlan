@@ -88,13 +88,25 @@ window.addEventListener('keydown', (e) => {
 });
 
 // Photo Modal Functions
-function openPhotoModal(imgSrc, caption) {
+function openPhotoModal(imgSrc, caption, igUrl, igHandle) {
   const modal = document.getElementById('photoModal');
   const modalImage = document.getElementById('modalImage');
   const modalCaption = document.getElementById('modalCaption');
+  const modalIgLink = document.getElementById('modalIgLink');
+  const modalIgText = document.getElementById('modalIgText');
 
   modalImage.src = imgSrc;
   modalCaption.innerText = caption;
+
+  if (modalIgLink) {
+    if (igUrl) {
+      modalIgLink.href = igUrl;
+      modalIgLink.classList.remove('hidden');
+      if (modalIgText && igHandle) modalIgText.innerText = igHandle;
+    } else {
+      modalIgLink.classList.add('hidden');
+    }
+  }
 
   modal.classList.remove('hidden');
   modal.classList.add('flex');
