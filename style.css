@@ -15,18 +15,101 @@ html {
 body {
   background-color: #FAF5EB;
   background-image: 
-    /* Aesthetic grid lines (buku catatan scrapbook lucu) */
-    linear-gradient(rgba(126, 162, 198, 0.14) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, rgba(126, 162, 198, 0.14) 1.5px, transparent 1.5px),
-    /* Soft ambient colorful pastel glows */
-    radial-gradient(at 8% 12%, rgba(219, 234, 254, 0.6) 0px, transparent 40%),
-    radial-gradient(at 92% 10%, rgba(254, 240, 138, 0.5) 0px, transparent 40%),
-    radial-gradient(at 85% 85%, rgba(251, 207, 232, 0.5) 0px, transparent 45%),
-    radial-gradient(at 12% 88%, rgba(224, 242, 254, 0.55) 0px, transparent 40%),
-    radial-gradient(at 50% 50%, rgba(255, 253, 245, 0.7) 0px, transparent 100%);
-  background-size: 30px 30px, 30px 30px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    /* Aesthetic grid lines (buku catatan scrapbook estetik) */
+    linear-gradient(rgba(126, 162, 198, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 162, 198, 0.16) 1px, transparent 1px),
+    /* Subtle cute polka dot accent */
+    radial-gradient(circle at 12px 12px, rgba(251, 191, 36, 0.12) 1.5px, transparent 1.5px),
+    /* Soft ambient colorful pastel aurora glows */
+    radial-gradient(at 0% 0%, rgba(219, 234, 254, 0.75) 0px, transparent 45%),
+    radial-gradient(at 100% 5%, rgba(254, 240, 138, 0.55) 0px, transparent 40%),
+    radial-gradient(at 95% 95%, rgba(251, 207, 232, 0.6) 0px, transparent 45%),
+    radial-gradient(at 5% 90%, rgba(224, 242, 254, 0.65) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(255, 255, 250, 0.75) 0px, transparent 100%);
+  background-size: 24px 24px, 24px 24px, 24px 24px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
   transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ===================================================
+   CUTE SCRAPBOOK & NOTEBOOK MEMO STYLING
+   =================================================== */
+
+/* Cute Scrapbook Main Cards with stationery texture */
+.scrapbook-card-sri {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(126, 162, 198, 0.1) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(224, 242, 254, 0.25) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(254, 240, 138, 0.15) 100%) !important;
+  background-size: 24px 24px, 100% 100% !important;
+  border: 2.5px solid #BAE6FD !important;
+  box-shadow: 0 20px 45px -12px rgba(56, 189, 248, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+
+.scrapbook-card-dewi {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(244, 114, 182, 0.1) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(253, 242, 248, 0.3) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(254, 215, 170, 0.15) 100%) !important;
+  background-size: 24px 24px, 100% 100% !important;
+  border: 2.5px solid #FBCFE8 !important;
+  box-shadow: 0 20px 45px -12px rgba(244, 114, 182, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+}
+
+/* Ruled Notebook Paper for 9-item Biodata List (Buku Tulis Lucu) */
+.notebook-memo-sri {
+  background-color: #FFFDF8 !important;
+  background-image: 
+    linear-gradient(90deg, transparent 24px, rgba(251, 113, 133, 0.35) 24px, rgba(251, 113, 133, 0.35) 25.5px, transparent 25.5px),
+    linear-gradient(rgba(186, 230, 253, 0.45) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 28px !important;
+  border: 2px solid #BAE6FD !important;
+  box-shadow: 0 8px 20px -4px rgba(186, 230, 253, 0.45), inset 0 1px 3px rgba(0,0,0,0.02) !important;
+}
+
+.notebook-memo-dewi {
+  background-color: #FFFDF9 !important;
+  background-image: 
+    linear-gradient(90deg, transparent 24px, rgba(244, 63, 94, 0.35) 24px, rgba(244, 63, 94, 0.35) 25.5px, transparent 25.5px),
+    linear-gradient(rgba(244, 114, 182, 0.35) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 28px !important;
+  border: 2px solid #FBCFE8 !important;
+  box-shadow: 0 8px 20px -4px rgba(251, 207, 232, 0.45), inset 0 1px 3px rgba(0,0,0,0.02) !important;
+}
+
+/* Cute Floating Doodles & Twinkling Animations */
+@keyframes gentleWobble {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-9px) rotate(4deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-3deg);
+  }
+}
+
+.cute-doodle {
+  animation: gentleWobble 7s ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+  display: inline-block;
+}
+
+@keyframes twinkleSparkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.25) rotate(15deg);
+  }
+}
+
+.twinkle-star {
+  animation: twinkleSparkle 3.5s ease-in-out infinite;
+  display: inline-block;
 }
 
 /* ===================================================
@@ -161,6 +244,24 @@ body.theme-midnight .profile-card > div {
   background-color: rgba(15, 23, 42, 0.92) !important;
   border-color: #1E3A8A !important;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+}
+body.theme-midnight .scrapbook-card-sri,
+body.theme-midnight .scrapbook-card-dewi {
+  background-color: rgba(15, 23, 42, 0.92) !important;
+  background-image: 
+    radial-gradient(circle at 12px 12px, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.9) 100%) !important;
+  border-color: #1E3A8A !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+body.theme-midnight .notebook-memo-sri,
+body.theme-midnight .notebook-memo-dewi {
+  background-color: rgba(30, 41, 59, 0.85) !important;
+  background-image: 
+    linear-gradient(90deg, transparent 24px, rgba(56, 189, 248, 0.3) 24px, rgba(56, 189, 248, 0.3) 25.5px, transparent 25.5px),
+    linear-gradient(rgba(56, 189, 248, 0.2) 1px, transparent 1px) !important;
+  border-color: #1E3A8A !important;
+  color: #E2E8F0 !important;
 }
 body.theme-midnight .bg-amber-50\/70, body.theme-midnight .bg-pink-50\/50, body.theme-midnight .bg-white\/60 {
   background-color: rgba(30, 41, 59, 0.75) !important;
