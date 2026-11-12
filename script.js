@@ -1,5 +1,5 @@
 // State of the active profile
-let currentProfile = 'sri';
+let currentProfile = 'both';
 
 // Switch profile function
 function switchProfile(target) {
@@ -319,6 +319,7 @@ function copyFullBio(target) {
 // Initialize biodata on page load
 renderBio('sri');
 renderBio('dewi');
+switchProfile('both');
 
 // ===================================================
 // Floating Aesthetic Particle Canvas

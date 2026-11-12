@@ -109,19 +109,19 @@
       <div class="inline-flex p-1.5 rounded-2xl bg-cream-200/80 backdrop-blur-md border border-aesthetic-warmtext/10 shadow-inner gap-1.5 sm:gap-2 max-w-lg w-full sm:w-auto">
         
         <!-- Tab Sri Wulandani -->
-        <button id="tab-sri" onclick="switchProfile('sri')" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 active-tab shadow-sm" aria-label="Lihat Profil Sri Wulandani">
+        <button id="tab-sri" onclick="switchProfile('sri')" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 inactive-tab" aria-label="Lihat Profil Sri Wulandani">
           <img src="assets/sri-wulandani.jpg" alt="Avatar Sri" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover ring-2 ring-aesthetic-softblue">
           <span class="font-sans font-semibold">Sri Wulandani</span>
         </button>
 
         <!-- Tab Dewi Azah -->
         <button id="tab-dewi" onclick="switchProfile('dewi')" class="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3 sm:px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 inactive-tab" aria-label="Lihat Profil Dewi Azah Hapsoh">
-          <img src="assets/dewi-azah.jpg" alt="Avatar Dewi" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover ring-2 ring-amber-300">
+          <img src="assets/dewi-azah.jpg" alt="Avatar Dewi" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover ring-2 ring-pink-300">
           <span class="font-sans font-semibold">Dewi Azah</span>
         </button>
 
         <!-- Tab Keduanya (Dual View) -->
-        <button id="tab-both" onclick="switchProfile('both')" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 inactive-tab" aria-label="Tampilkan Kedua Biodata Sekaligus">
+        <button id="tab-both" onclick="switchProfile('both')" class="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-300 active-tab shadow-sm" aria-label="Tampilkan Kedua Biodata Sekaligus">
           <i class="fa-solid fa-users text-xs"></i>
           <span class="font-sans font-semibold">Keduanya</span>
         </button>
@@ -133,7 +133,7 @@
     <div class="relative w-full">
       
       <!-- ================= PROFILE 1: SRI WULANDANI (CUTE SCRAPBOOK STYLE) ================= -->
-      <section id="profile-sri" class="profile-card block transition-all duration-500 ease-out">
+      <section id="profile-sri" class="profile-card block mb-10 transition-all duration-500 ease-out">
         <div class="bg-white/90 backdrop-blur-xl border-2 border-sky-200 rounded-3xl p-6 sm:p-10 shadow-xl shadow-sky-100/50 relative overflow-hidden squishy">
           
           <!-- Cute Washi Tape & Floating Sticker -->
@@ -303,7 +303,7 @@
       </section>
 
       <!-- ================= PROFILE 2: DEWI AZAH HAPSOH (CUTE SCRAPBOOK STYLE) ================= -->
-      <section id="profile-dewi" class="profile-card hidden transition-all duration-500 ease-out">
+      <section id="profile-dewi" class="profile-card block transition-all duration-500 ease-out">
         <div class="bg-white/90 backdrop-blur-xl border-2 border-pink-200 rounded-3xl p-6 sm:p-10 shadow-xl shadow-pink-100/50 relative overflow-hidden squishy">
           
           <!-- Cute Washi Tape & Floating Sticker -->
