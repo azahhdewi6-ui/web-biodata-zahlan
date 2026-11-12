@@ -750,3 +750,176 @@ try {
 } catch (e) {
   applyTheme('wave');
 }
+
+// ===================================================
+// Interactive Polaroid Memories Gallery Logic
+// ===================================================
+let polaroidUploadDataUrl = null;
+
+function openAddPolaroidModal(target) {
+  const modal = document.getElementById('addPolaroidModal');
+  const targetInput = document.getElementById('polaroid-target-input');
+  const title = document.getElementById('addPolaroidTitle');
+  const form = document.getElementById('addPolaroidForm');
+  const previewBox = document.getElementById('polaroidPreviewBox');
+  const previewImg = document.getElementById('polaroidPreviewImg');
+
+  if (targetInput) targetInput.value = target;
+  if (title) title.innerText = `Tambah Polaroid ${target === 'sri' ? 'Sri Wulandani' : 'Dewi Azah'}`;
+  if (form) form.reset();
+  if (previewBox) previewBox.classList.add('hidden');
+  if (previewImg) previewImg.src = '';
+  polaroidUploadDataUrl = null;
+
+  if (modal) {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    setTimeout(() => modal.classList.add('show'), 10);
+  }
+}
+
+function closeAddPolaroidModal() {
+  const modal = document.getElementById('addPolaroidModal');
+  if (modal) {
+    modal.classList.remove('show');
+    setTimeout(() => {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }, 300);
+  }
+}
+
+function previewPolaroidUpload(e) {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    const img = new Image();
+    img.onload = function() {
+      const maxDim = 700;
+      let width = img.width;
+      let height = img.height;
+      if (width > maxDim || height > maxDim) {
+        if (width > height) {
+          height = Math.round((height * maxDim) / width);
+          width = maxDim;
+        } else {
+          width = Math.round((width * maxDim) / height);
+          height = maxDim;
+        }
+      }
+      const cvs = document.createElement('canvas');
+      cvs.width = width;
+      cvs.height = height;
+      const c = cvs.getContext('2d');
+      c.drawImage(img, 0, 0, width, height);
+      polaroidUploadDataUrl = cvs.toDataURL('image/jpeg', 0.85);
+
+      const previewBox = document.getElementById('polaroidPreviewBox');
+      const previewImg = document.getElementById('polaroidPreviewImg');
+      if (previewBox && previewImg) {
+        previewImg.src = polaroidUploadDataUrl;
+        previewBox.classList.remove('hidden');
+      }
+    };
+    img.src = evt.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function saveCustomPolaroid(e) {
+  e.preventDefault();
+  const target = document.getElementById('polaroid-target-input').value;
+  const caption = document.getElementById('inputPolaroidCaption').value.trim();
+  const sub = document.getElementById('inputPolaroidSub').value.trim() || 'Momen Estetik 🌸';
+
+  if (!polaroidUploadDataUrl) {
+    alert('Silakan pilih foto terlebih dahulu ya!');
+    return;
+  }
+
+  const newPolaroid = {
+    id: Date.now(),
+    src: polaroidUploadDataUrl,
+    caption: caption,
+    sub: sub
+  };
+
+  try {
+    const key = 'zahlan_custom_polaroids_' + target;
+    const existing = JSON.parse(localStorage.getItem(key) || '[]');
+    existing.push(newPolaroid);
+    localStorage.setItem(key, JSON.stringify(existing));
+  } catch (err) {
+    console.error('Failed to save to localStorage:', err);
+  }
+
+  renderCustomPolaroids(target);
+  closeAddPolaroidModal();
+  copyText('', 'Foto Polaroid berhasil ditambahkan! 📸');
+}
+
+function deleteCustomPolaroid(target, id, e) {
+  if (e) e.stopPropagation();
+  if (!confirm('Hapus foto polaroid ini?')) return;
+
+  try {
+    const key = 'zahlan_custom_polaroids_' + target;
+    const existing = JSON.parse(localStorage.getItem(key) || '[]');
+    const filtered = existing.filter(p => p.id !== id);
+    localStorage.setItem(key, JSON.stringify(filtered));
+  } catch (err) {}
+
+  renderCustomPolaroids(target);
+  copyText('', 'Foto polaroid telah dihapus');
+}
+
+function renderCustomPolaroids(target) {
+  const container = document.getElementById(`custom-polaroids-${target}`);
+  if (!container) return;
+
+  let polaroids = [];
+  try {
+    const key = 'zahlan_custom_polaroids_' + target;
+    polaroids = JSON.parse(localStorage.getItem(key) || '[]');
+  } catch (e) {}
+
+  const igUrl = target === 'sri' ? 'https://instagram.com/sriwlandnii' : 'https://instagram.com/azahh-ajaa';
+  const igHandle = target === 'sri' ? '@sriwlandnii' : '@azahh-ajaa';
+  const washiColor = target === 'sri' ? 'washi-tape-blue' : 'washi-tape-pink';
+  const borderColor = target === 'sri' ? 'border-sky-100' : 'border-pink-100';
+  const textHeading = target === 'sri' ? 'text-sky-950' : 'text-pink-950';
+
+  let html = '';
+  polaroids.forEach((item, index) => {
+    const rot = index % 2 === 0 ? 'rotate-1' : '-rotate-1';
+    html += `
+      <div class="relative group cursor-pointer polaroid-frame p-2.5 pb-3 bg-white rounded-2xl border ${borderColor} transform ${rot} group-hover:rotate-0" onclick="openPhotoModal('${item.src}', '${item.caption.replace(/'/g, "\\'")}', '${igUrl}', '${igHandle}')">
+        <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-12 h-3.5 ${washiColor} rounded-xs opacity-85 pointer-events-none z-10"></div>
+        
+        <!-- Delete Button -->
+        <button type="button" onclick="deleteCustomPolaroid('${target}', ${item.id}, event)" class="absolute top-2 right-2 z-20 w-6 h-6 rounded-full bg-rose-500/80 hover:bg-rose-600 text-white text-[10px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center shadow-xs" title="Hapus Polaroid">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+
+        <div class="relative overflow-hidden rounded-xl aspect-square bg-slate-100 mb-2">
+          <img src="${item.src}" alt="${item.caption}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span class="text-white text-[10px] font-cute flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-full"><i class="fa-solid fa-expand"></i> Perbesar</span>
+          </div>
+        </div>
+        <div class="text-center px-1">
+          <p class="font-cute font-bold ${textHeading} text-xs truncate">${item.caption}</p>
+          <p class="text-[10px] font-mono text-slate-500 truncate">${item.sub}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+// Initial render for custom polaroids
+renderCustomPolaroids('sri');
+renderCustomPolaroids('dewi');

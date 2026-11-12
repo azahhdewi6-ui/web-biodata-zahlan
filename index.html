@@ -430,6 +430,84 @@
             </div>
 
           </div>
+
+          <!-- ================= MINI POLAROID PHOTO GALLERY (SRI) ================= -->
+          <div class="mt-8 pt-6 border-t-2 border-dashed border-sky-200/80">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="text-2xl">📸</span>
+                <div>
+                  <h4 class="font-cute font-bold text-sky-950 text-base sm:text-lg leading-tight">Galeri Polaroid & Kenangan Sri</h4>
+                  <p class="text-[11px] font-mono text-aesthetic-muted">Momen cerita, hobi, dan estetika scrapbook</p>
+                </div>
+              </div>
+              <button type="button" onclick="openAddPolaroidModal('sri')" class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-2xl bg-amber-100 hover:bg-amber-200 border border-amber-300/80 text-amber-900 text-xs font-cute font-bold shadow-2xs transition-all hover:scale-105 active:scale-95" title="Tambah Foto Polaroid Baru">
+                <span>➕</span> Tambah Foto Polaroid
+              </button>
+            </div>
+
+            <!-- Polaroid Grid -->
+            <div id="polaroid-container-sri" class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4 items-stretch">
+              
+              <!-- 1. Foto Profil Polaroid -->
+              <div class="relative group cursor-pointer polaroid-frame p-2.5 pb-3 bg-white rounded-2xl border border-sky-100 transform -rotate-1 group-hover:rotate-0" onclick="openPhotoModal('assets/sri-wulandani.jpg', 'Sri Wulandani • Calon Aktris 🎬', 'https://instagram.com/sriwlandnii', '@sriwlandnii')">
+                <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-12 h-3.5 washi-tape-blue rounded-xs opacity-80 pointer-events-none z-10"></div>
+                <div class="relative overflow-hidden rounded-xl aspect-square bg-slate-100 mb-2">
+                  <img src="assets/sri-wulandani.jpg" alt="Sri Wulandani" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white text-[10px] font-cute flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-full"><i class="fa-solid fa-expand"></i> Perbesar</span>
+                  </div>
+                </div>
+                <div class="text-center px-1">
+                  <p class="font-cute font-bold text-sky-950 text-xs truncate">Sri Wulandani ✨</p>
+                  <p class="text-[10px] font-mono text-pink-600 truncate">Calon Aktris 🎬</p>
+                </div>
+              </div>
+
+              <!-- 2. Aesthetic Journaling Polaroid -->
+              <div class="relative group cursor-pointer polaroid-frame p-2.5 pb-3 bg-white rounded-2xl border border-sky-100 transform rotate-1 group-hover:rotate-0" onclick="openPhotoModal('assets/th143.jpg', 'Aesthetic Journaling • Inspirasi Wulan 📖', 'https://instagram.com/sriwlandnii', '@sriwlandnii')">
+                <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-12 h-3.5 washi-tape-pink rounded-xs opacity-80 pointer-events-none z-10"></div>
+                <div class="relative overflow-hidden rounded-xl aspect-square bg-slate-100 mb-2">
+                  <img src="assets/th143.jpg" alt="Journaling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white text-[10px] font-cute flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-full"><i class="fa-solid fa-expand"></i> Perbesar</span>
+                  </div>
+                </div>
+                <div class="text-center px-1">
+                  <p class="font-cute font-bold text-sky-950 text-xs truncate">Journal Mood 📖</p>
+                  <p class="text-[10px] font-mono text-slate-500 truncate">Catatan Estetik</p>
+                </div>
+              </div>
+
+              <!-- 3. Wave to Earth Melody Polaroid -->
+              <div class="relative group cursor-pointer polaroid-frame p-2.5 pb-3 bg-white rounded-2xl border border-sky-100 transform -rotate-2 group-hover:rotate-0" onclick="openPhotoModal('assets/1782451684253425.jpg', 'Wave to Earth Seasons • Musik Santai 🌊', 'https://instagram.com/sriwlandnii', '@sriwlandnii')">
+                <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-12 h-3.5 washi-tape-cream rounded-xs opacity-80 pointer-events-none z-10"></div>
+                <div class="relative overflow-hidden rounded-xl aspect-square bg-slate-100 mb-2">
+                  <img src="assets/1782451684253425.jpg" alt="Wave to Earth" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white text-[10px] font-cute flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-full"><i class="fa-solid fa-expand"></i> Perbesar</span>
+                  </div>
+                </div>
+                <div class="text-center px-1">
+                  <p class="font-cute font-bold text-sky-950 text-xs truncate">Seasons Melody 🌊</p>
+                  <p class="text-[10px] font-mono text-slate-500 truncate">Vibes Santai</p>
+                </div>
+              </div>
+
+              <!-- Slot Tambahan Kustom Sri (Di-render oleh JS) -->
+              <div id="custom-polaroids-sri" class="contents"></div>
+
+              <!-- 4. Tombol Tambah Polaroid Card -->
+              <div onclick="openAddPolaroidModal('sri')" class="border-2 border-dashed border-sky-300/80 hover:border-sky-500 bg-sky-50/40 hover:bg-sky-100/60 rounded-2xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition-all hover:scale-105 group min-h-[160px]" title="Klik untuk tambah foto baru">
+                <div class="w-10 h-10 rounded-full bg-white text-sky-600 flex items-center justify-center text-base shadow-xs mb-2 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+                <p class="font-cute font-bold text-xs text-sky-900 leading-tight">Foto Kamu</p>
+                <span class="text-[10px] font-mono text-sky-600 mt-0.5">Unggah Foto ✨</span>
+              </div>
+
+            </div>
+          </div>
         </div>
       </section>
 
@@ -629,6 +707,84 @@
             </div>
 
           </div>
+
+          <!-- ================= MINI POLAROID PHOTO GALLERY (DEWI) ================= -->
+          <div class="mt-8 pt-6 border-t-2 border-dashed border-pink-200/80">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="text-2xl">📸</span>
+                <div>
+                  <h4 class="font-cute font-bold text-pink-950 text-base sm:text-lg leading-tight">Galeri Polaroid & Kenangan Dewi</h4>
+                  <p class="text-[11px] font-mono text-aesthetic-muted">Momen musik, mimpi perawat, dan estetika scrapbook</p>
+                </div>
+              </div>
+              <button type="button" onclick="openAddPolaroidModal('dewi')" class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-2xl bg-pink-100 hover:bg-pink-200 border border-pink-300/80 text-pink-900 text-xs font-cute font-bold shadow-2xs transition-all hover:scale-105 active:scale-95" title="Tambah Foto Polaroid Baru">
+                <span>➕</span> Tambah Foto Polaroid
+              </button>
+            </div>
+
+            <!-- Polaroid Grid -->
+            <div id="polaroid-container-dewi" class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4 items-stretch">
+              
+              <!-- 1. Foto Profil Polaroid -->
+              <div class="relative group cursor-pointer polaroid-frame p-2.5 pb-3 bg-white rounded-2xl border border-pink-100 transform rotate-1 group-hover:rotate-0" onclick="openPhotoModal('assets/dewi-azah.jpg', 'Dewi Azah Hapsoh • Calon Perawat 🩺', 'https://instagram.com/azahh-ajaa', '@azahh-ajaa')">
+                <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-12 h-3.5 washi-tape-pink rounded-xs opacity-80 pointer-events-none z-10"></div>
+                <div class="relative overflow-hidden rounded-xl aspect-square bg-slate-100 mb-2">
+                  <img src="assets/dewi-azah.jpg" alt="Dewi Azah Hapsoh" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white text-[10px] font-cute flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-full"><i class="fa-solid fa-expand"></i> Perbesar</span>
+                  </div>
+                </div>
+                <div class="text-center px-1">
+                  <p class="font-cute font-bold text-pink-950 text-xs truncate">Dewi Azah 🌸</p>
+                  <p class="text-[10px] font-mono text-pink-600 truncate">Calon Perawat 🩺</p>
+                </div>
+              </div>
+
+              <!-- 2. Live Music Polaroid -->
+              <div class="relative group cursor-pointer polaroid-frame p-2.5 pb-3 bg-white rounded-2xl border border-pink-100 transform -rotate-1 group-hover:rotate-0" onclick="openPhotoModal('assets/wave-to-earth-band-performance-ieoaqvin0exgggsj.jpg', 'Live Music & Menyanyi • Harmoni Dewi 🎤', 'https://instagram.com/azahh-ajaa', '@azahh-ajaa')">
+                <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-12 h-3.5 washi-tape-blue rounded-xs opacity-80 pointer-events-none z-10"></div>
+                <div class="relative overflow-hidden rounded-xl aspect-square bg-slate-100 mb-2">
+                  <img src="assets/wave-to-earth-band-performance-ieoaqvin0exgggsj.jpg" alt="Live Music" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white text-[10px] font-cute flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-full"><i class="fa-solid fa-expand"></i> Perbesar</span>
+                  </div>
+                </div>
+                <div class="text-center px-1">
+                  <p class="font-cute font-bold text-pink-950 text-xs truncate">Harmoni Musik 🎤</p>
+                  <p class="text-[10px] font-mono text-slate-500 truncate">Menyanyi Lagu</p>
+                </div>
+              </div>
+
+              <!-- 3. Wave to Earth Bad Polaroid -->
+              <div class="relative group cursor-pointer polaroid-frame p-2.5 pb-3 bg-white rounded-2xl border border-pink-100 transform rotate-2 group-hover:rotate-0" onclick="openPhotoModal('assets/th144.jpg', 'Wave to Earth - Bad Art • Playlist Mood 🎧', 'https://instagram.com/azahh-ajaa', '@azahh-ajaa')">
+                <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 w-12 h-3.5 washi-tape-cream rounded-xs opacity-80 pointer-events-none z-10"></div>
+                <div class="relative overflow-hidden rounded-xl aspect-square bg-slate-100 mb-2">
+                  <img src="assets/th144.jpg" alt="Wave to Earth Bad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white text-[10px] font-cute flex items-center gap-1 bg-black/40 px-2 py-0.5 rounded-full"><i class="fa-solid fa-expand"></i> Perbesar</span>
+                  </div>
+                </div>
+                <div class="text-center px-1">
+                  <p class="font-cute font-bold text-pink-950 text-xs truncate">Bad by W2E 🎧</p>
+                  <p class="text-[10px] font-mono text-slate-500 truncate">Playlist Favorit</p>
+                </div>
+              </div>
+
+              <!-- Slot Tambahan Kustom Dewi (Di-render oleh JS) -->
+              <div id="custom-polaroids-dewi" class="contents"></div>
+
+              <!-- 4. Tombol Tambah Polaroid Card -->
+              <div onclick="openAddPolaroidModal('dewi')" class="border-2 border-dashed border-pink-300/80 hover:border-pink-500 bg-pink-50/40 hover:bg-pink-100/60 rounded-2xl p-3 flex flex-col items-center justify-center text-center cursor-pointer transition-all hover:scale-105 group min-h-[160px]" title="Klik untuk tambah foto baru">
+                <div class="w-10 h-10 rounded-full bg-white text-pink-600 flex items-center justify-center text-base shadow-xs mb-2 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+                <p class="font-cute font-bold text-xs text-pink-900 leading-tight">Foto Kamu</p>
+                <span class="text-[10px] font-mono text-pink-600 mt-0.5">Unggah Foto ✨</span>
+              </div>
+
+            </div>
+          </div>
         </div>
       </section>
 
@@ -792,6 +948,65 @@
           </button>
           <button type="submit" class="px-5 py-2 rounded-xl bg-aesthetic-deepblue hover:bg-aesthetic-blue text-white font-mono font-medium text-xs shadow-md transition-all">
             <i class="fa-solid fa-floppy-disk mr-1"></i> Simpan Perubahan
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Modal for Adding New Polaroid Photo -->
+  <div id="addPolaroidModal" class="fixed inset-0 z-50 bg-aesthetic-deepblue/80 backdrop-blur-md hidden items-center justify-center p-4 transition-all opacity-0" onclick="closeAddPolaroidModal()">
+    <div class="relative max-w-md w-full bg-cream-50 rounded-3xl p-6 shadow-2xl border border-white/30 transform scale-95 transition-transform" onclick="event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-3 mb-3 border-b border-aesthetic-warmtext/10">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📸</span>
+          <div>
+            <h3 id="addPolaroidTitle" class="font-cute font-bold text-lg text-aesthetic-deepblue">Tambah Foto Polaroid</h3>
+            <p class="text-[10px] font-mono text-aesthetic-muted">Unggah foto kenangan sekolah atau estetik</p>
+          </div>
+        </div>
+        <button onclick="closeAddPolaroidModal()" class="w-8 h-8 rounded-full bg-cream-200 hover:bg-cream-300 text-aesthetic-warmtext flex items-center justify-center text-sm transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Form -->
+      <form id="addPolaroidForm" onsubmit="saveCustomPolaroid(event)" class="space-y-3 font-sans text-xs">
+        <input type="hidden" id="polaroid-target-input" value="sri">
+
+        <!-- File Upload -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">1. Pilih Foto dari Komputer / HP</label>
+          <input type="file" id="inputPolaroidFile" accept="image/*" class="w-full text-xs text-slate-600 file:mr-2 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-cute file:bg-sky-600 file:text-white hover:file:bg-sky-700 cursor-pointer" required onchange="previewPolaroidUpload(event)">
+        </div>
+
+        <!-- Preview Image Box -->
+        <div id="polaroidPreviewBox" class="hidden my-2 p-2 bg-white rounded-2xl border border-slate-200 flex items-center justify-center">
+          <img id="polaroidPreviewImg" src="" alt="Pratinjau" class="max-h-36 rounded-xl object-contain">
+        </div>
+
+        <!-- Caption -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">2. Judul / Caption Polaroid</label>
+          <input type="text" id="inputPolaroidCaption" placeholder="Contoh: Praktik Lab RPL bareng Bestie 💻✨" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-xs" required>
+        </div>
+
+        <!-- Subtag -->
+        <div>
+          <label class="block font-mono text-aesthetic-deepblue font-semibold mb-1">3. Keterangan Singkat / Tanggal (Opsional)</label>
+          <input type="text" id="inputPolaroidSub" placeholder="Contoh: Kenangan SMK 2026 🌸" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 text-xs">
+        </div>
+
+        <!-- Submit & Cancel -->
+        <div class="flex items-center justify-end gap-2 pt-2 border-t border-aesthetic-warmtext/10">
+          <button type="button" onclick="closeAddPolaroidModal()" class="px-3.5 py-1.5 rounded-xl bg-cream-200 hover:bg-cream-300 text-slate-700 font-cute text-xs">
+            Batal
+          </button>
+          <button type="submit" class="px-4 py-1.5 rounded-xl bg-aesthetic-deepblue hover:bg-aesthetic-blue text-white font-cute font-bold text-xs shadow-md">
+            <i class="fa-solid fa-floppy-disk mr-1"></i> Simpan ke Polaroid
           </button>
         </div>
       </form>
