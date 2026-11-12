@@ -76,6 +76,16 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.06);
 }
 
+.washi-tape-pink {
+  background: repeating-linear-gradient(-45deg, #fbcfe8, #fbcfe8 8px, #fce7f3 8px, #fce7f3 16px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.washi-tape-cream {
+  background: repeating-linear-gradient(45deg, #fef08a, #fef08a 8px, #fef9c3 8px, #fef9c3 16px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
 /* Cute squishy bounce */
 .squishy:hover {
   transform: translateY(-3px) scale(1.015);
