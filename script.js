@@ -322,13 +322,13 @@ renderBio('dewi');
 switchProfile('both');
 
 // ===================================================
-// Floating Aesthetic Particle Canvas
+// Floating Cute Background Elements (Stars, Hearts, Flowers, Bubbles)
 // ===================================================
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 
 let particles = [];
-const particleCount = 28;
+const particleCount = 32;
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
@@ -337,48 +337,116 @@ function resizeCanvas() {
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
-class Particle {
+const cuteTypes = ['star', 'heart', 'flower', 'sparkle', 'bubble'];
+const cutePastelColors = [
+  'rgba(186, 215, 248,', // soft baby blue
+  'rgba(251, 207, 232,', // soft pastel pink
+  'rgba(254, 240, 138,', // warm pastel butter yellow
+  'rgba(221, 214, 254,', // soft lavender
+  'rgba(254, 215, 170,'  // soft pastel peach
+];
+
+class CuteParticle {
   constructor() {
     this.reset();
   }
 
   reset() {
     this.x = Math.random() * canvas.width;
-    this.y = canvas.height + Math.random() * 50;
-    this.radius = Math.random() * 2.8 + 1;
-    this.speedY = Math.random() * 0.45 + 0.15;
-    this.speedX = (Math.random() - 0.5) * 0.3;
-    this.opacity = Math.random() * 0.45 + 0.2;
-    // Blue & Cream colors
-    const colors = [
-      'rgba(126, 162, 198,', // soft blue
-      'rgba(43, 91, 132,',   // aesthetic blue
-      'rgba(217, 200, 175,', // cream
-      'rgba(244, 236, 224,'  // light cream
-    ];
-    this.colorBase = colors[Math.floor(Math.random() * colors.length)];
+    this.y = canvas.height + Math.random() * 40;
+    this.size = Math.random() * 7 + 6; // size 6px to 13px
+    this.speedY = Math.random() * 0.45 + 0.2;
+    this.wobbleSpeed = Math.random() * 0.02 + 0.01;
+    this.wobbleAngle = Math.random() * Math.PI * 2;
+    this.wobbleRadius = Math.random() * 0.8 + 0.3;
+    this.rotation = Math.random() * Math.PI * 2;
+    this.rotSpeed = (Math.random() - 0.5) * 0.015;
+    this.opacity = Math.random() * 0.45 + 0.3;
+    this.type = cuteTypes[Math.floor(Math.random() * cuteTypes.length)];
+    this.colorBase = cutePastelColors[Math.floor(Math.random() * cutePastelColors.length)];
   }
 
   update() {
     this.y -= this.speedY;
-    this.x += this.speedX;
+    this.wobbleAngle += this.wobbleSpeed;
+    this.x += Math.sin(this.wobbleAngle) * this.wobbleRadius;
+    this.rotation += this.rotSpeed;
 
-    if (this.y < -10) {
+    if (this.y < -30) {
       this.reset();
     }
   }
 
   draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `${this.colorBase} ${this.opacity})`;
-    ctx.fill();
+    ctx.save();
+    const color = `${this.colorBase} ${this.opacity})`;
+
+    if (this.type === 'star') {
+      // 4-Point Sparkle Star
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      for (let i = 0; i < 4; i++) {
+        const a1 = (i * Math.PI) / 2;
+        const a2 = a1 + Math.PI / 4;
+        ctx.lineTo(Math.cos(a1) * this.size, Math.sin(a1) * this.size);
+        ctx.lineTo(Math.cos(a2) * (this.size * 0.32), Math.sin(a2) * (this.size * 0.32));
+      }
+      ctx.closePath();
+      ctx.fill();
+    } else if (this.type === 'heart') {
+      // Cute Mini Heart
+      ctx.translate(this.x, this.y);
+      ctx.scale(this.size / 10, this.size / 10);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.bezierCurveTo(-5, -5, -8, 2, 0, 8);
+      ctx.bezierCurveTo(8, 2, 5, -5, 0, 0);
+      ctx.fill();
+    } else if (this.type === 'flower') {
+      // 5-Petal Daisy Flower
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.fillStyle = color;
+      for (let i = 0; i < 5; i++) {
+        const a = (i * 2 * Math.PI) / 5;
+        ctx.beginPath();
+        ctx.arc(Math.cos(a) * (this.size * 0.45), Math.sin(a) * (this.size * 0.45), this.size * 0.32, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      // Yellow Center
+      ctx.beginPath();
+      ctx.arc(0, 0, this.size * 0.22, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(254, 240, 138, ${this.opacity + 0.2})`;
+      ctx.fill();
+    } else if (this.type === 'bubble') {
+      // Cute Shiny Bubble
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size * 0.7, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+      // Highlight spot
+      ctx.beginPath();
+      ctx.arc(this.x - this.size * 0.25, this.y - this.size * 0.25, this.size * 0.2, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity + 0.3})`;
+      ctx.fill();
+    } else {
+      // Little Sparkle / Twinkle Dot
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size * 0.4, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+
+    ctx.restore();
   }
 }
 
 for (let i = 0; i < particleCount; i++) {
-  const p = new Particle();
-  p.y = Math.random() * canvas.height; // scatter initial heights
+  const p = new CuteParticle();
+  p.y = Math.random() * canvas.height;
   particles.push(p);
 }
 

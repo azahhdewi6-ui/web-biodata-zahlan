@@ -13,12 +13,33 @@ html {
 }
 
 body {
-  background-color: #FAF6ED;
+  background-color: #FAF5EB;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(126, 162, 198, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(214, 229, 243, 0.12) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(244, 236, 224, 0.5) 0px, transparent 100%);
+    /* Aesthetic grid lines (buku catatan scrapbook lucu) */
+    linear-gradient(rgba(126, 162, 198, 0.14) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(126, 162, 198, 0.14) 1.5px, transparent 1.5px),
+    /* Soft ambient colorful pastel glows */
+    radial-gradient(at 8% 12%, rgba(219, 234, 254, 0.6) 0px, transparent 40%),
+    radial-gradient(at 92% 10%, rgba(254, 240, 138, 0.5) 0px, transparent 40%),
+    radial-gradient(at 85% 85%, rgba(251, 207, 232, 0.5) 0px, transparent 45%),
+    radial-gradient(at 12% 88%, rgba(224, 242, 254, 0.55) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(255, 253, 245, 0.7) 0px, transparent 100%);
+  background-size: 30px 30px, 30px 30px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
+}
+
+/* Floating cloud gentle sway animation */
+@keyframes cloudFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-12px) translateX(8px);
+  }
+}
+
+.floating-cloud {
+  animation: cloudFloat 8s ease-in-out infinite;
 }
 
 /* Active & Inactive Tab Styles */
