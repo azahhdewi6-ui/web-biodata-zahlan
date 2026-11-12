@@ -139,3 +139,67 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #2B5B84;
 }
+
+/* ===================================================
+   Cute Vinyl Record Music Player Styles
+   =================================================== */
+@keyframes spinDisc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinning {
+  animation: spinDisc 8s linear infinite;
+}
+
+.paused {
+  animation-play-state: paused !important;
+}
+
+.vinyl-grooves {
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 20%, #1e293b 25%, #0f172a 45%, #1e293b 50%, #0f172a 75%, #020617 100%);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25), inset 0 0 6px rgba(255, 255, 255, 0.15);
+}
+
+/* Equalizer soundwave bars */
+@keyframes bounceBar {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 16px;
+  }
+}
+
+.equalizer-bar {
+  width: 3px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #2B5B84;
+  transition: height 0.2s ease;
+}
+
+.playing .equalizer-bar:nth-child(1) {
+  animation: bounceBar 0.8s ease-in-out infinite;
+}
+.playing .equalizer-bar:nth-child(2) {
+  animation: bounceBar 0.55s ease-in-out infinite 0.2s;
+}
+.playing .equalizer-bar:nth-child(3) {
+  animation: bounceBar 0.95s ease-in-out infinite 0.4s;
+}
+.playing .equalizer-bar:nth-child(4) {
+  animation: bounceBar 0.7s ease-in-out infinite 0.15s;
+}
+.playing .equalizer-bar:nth-child(5) {
+  animation: bounceBar 0.85s ease-in-out infinite 0.35s;
+}
+
+/* Floating Music Player subtle bounce */
+.music-widget-shadow {
+  box-shadow: 0 10px 30px -5px rgba(22, 50, 79, 0.18), 0 4px 10px -2px rgba(22, 50, 79, 0.1);
+}
