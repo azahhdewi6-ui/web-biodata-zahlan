@@ -26,6 +26,171 @@ body {
     radial-gradient(at 50% 50%, rgba(255, 253, 245, 0.7) 0px, transparent 100%);
   background-size: 30px 30px, 30px 30px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ===================================================
+   AESTHETIC THEMES PALETTES
+   =================================================== */
+
+/* 1. Theme Strawberry Milk */
+body.theme-strawberry {
+  background-color: #FFF1F2 !important;
+  background-image: 
+    linear-gradient(rgba(244, 63, 94, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(244, 63, 94, 0.12) 1.5px, transparent 1.5px),
+    radial-gradient(at 8% 12%, rgba(254, 205, 211, 0.7) 0px, transparent 40%),
+    radial-gradient(at 92% 10%, rgba(254, 240, 138, 0.5) 0px, transparent 40%),
+    radial-gradient(at 85% 85%, rgba(244, 114, 182, 0.45) 0px, transparent 45%),
+    radial-gradient(at 12% 88%, rgba(255, 228, 230, 0.8) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(255, 245, 247, 0.8) 0px, transparent 100%) !important;
+  color: #4C0519 !important;
+}
+body.theme-strawberry h1, body.theme-strawberry h2, body.theme-strawberry h3 {
+  color: #881337 !important;
+}
+body.theme-strawberry .active-tab {
+  background-color: #BE123C !important;
+  color: #FFFFFF !important;
+}
+body.theme-strawberry .washi-tape-blue {
+  background: repeating-linear-gradient(45deg, #fecdd3, #fecdd3 8px, #ffe4e6 8px, #ffe4e6 16px) !important;
+}
+body.theme-strawberry .washi-tape-pink {
+  background: repeating-linear-gradient(-45deg, #f43f5e, #f43f5e 8px, #fb7185 8px, #fb7185 16px) !important;
+}
+
+/* 2. Theme Matcha Latte */
+body.theme-matcha {
+  background-color: #F7FEE7 !important;
+  background-image: 
+    linear-gradient(rgba(74, 222, 128, 0.15) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(74, 222, 128, 0.15) 1.5px, transparent 1.5px),
+    radial-gradient(at 8% 12%, rgba(187, 247, 208, 0.7) 0px, transparent 40%),
+    radial-gradient(at 92% 10%, rgba(254, 240, 138, 0.5) 0px, transparent 40%),
+    radial-gradient(at 85% 85%, rgba(167, 243, 208, 0.5) 0px, transparent 45%),
+    radial-gradient(at 12% 88%, rgba(236, 253, 245, 0.8) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(255, 255, 245, 0.8) 0px, transparent 100%) !important;
+  color: #14532D !important;
+}
+body.theme-matcha h1, body.theme-matcha h2, body.theme-matcha h3 {
+  color: #14532D !important;
+}
+body.theme-matcha .active-tab {
+  background-color: #15803D !important;
+  color: #F0FDF4 !important;
+}
+body.theme-matcha .washi-tape-blue {
+  background: repeating-linear-gradient(45deg, #bbf7d0, #bbf7d0 8px, #dcfce7 8px, #dcfce7 16px) !important;
+}
+body.theme-matcha .washi-tape-pink {
+  background: repeating-linear-gradient(-45deg, #86efac, #86efac 8px, #bbf7d0 8px, #bbf7d0 16px) !important;
+}
+
+/* 3. Theme Lavender Dream */
+body.theme-lavender {
+  background-color: #FAF5FF !important;
+  background-image: 
+    linear-gradient(rgba(192, 132, 252, 0.15) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(192, 132, 252, 0.15) 1.5px, transparent 1.5px),
+    radial-gradient(at 8% 12%, rgba(233, 213, 255, 0.7) 0px, transparent 40%),
+    radial-gradient(at 92% 10%, rgba(254, 215, 170, 0.5) 0px, transparent 40%),
+    radial-gradient(at 85% 85%, rgba(196, 181, 253, 0.5) 0px, transparent 45%),
+    radial-gradient(at 12% 88%, rgba(243, 232, 255, 0.8) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(255, 250, 255, 0.8) 0px, transparent 100%) !important;
+  color: #3B0764 !important;
+}
+body.theme-lavender h1, body.theme-lavender h2, body.theme-lavender h3 {
+  color: #3B0764 !important;
+}
+body.theme-lavender .active-tab {
+  background-color: #6B21A8 !important;
+  color: #FAF5FF !important;
+}
+body.theme-lavender .washi-tape-blue {
+  background: repeating-linear-gradient(45deg, #ddd6fe, #ddd6fe 8px, #ede9fe 8px, #ede9fe 16px) !important;
+}
+body.theme-lavender .washi-tape-pink {
+  background: repeating-linear-gradient(-45deg, #c4b5fd, #c4b5fd 8px, #ddd6fe 8px, #ddd6fe 16px) !important;
+}
+
+/* 4. Theme Sunset Peach */
+body.theme-peach {
+  background-color: #FFFBEB !important;
+  background-image: 
+    linear-gradient(rgba(245, 158, 11, 0.15) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(245, 158, 11, 0.15) 1.5px, transparent 1.5px),
+    radial-gradient(at 8% 12%, rgba(254, 240, 138, 0.7) 0px, transparent 40%),
+    radial-gradient(at 92% 10%, rgba(254, 215, 170, 0.7) 0px, transparent 40%),
+    radial-gradient(at 85% 85%, rgba(253, 186, 116, 0.5) 0px, transparent 45%),
+    radial-gradient(at 12% 88%, rgba(254, 243, 199, 0.8) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(255, 253, 245, 0.8) 0px, transparent 100%) !important;
+  color: #78350F !important;
+}
+body.theme-peach h1, body.theme-peach h2, body.theme-peach h3 {
+  color: #78350F !important;
+}
+body.theme-peach .active-tab {
+  background-color: #B45309 !important;
+  color: #FFFBEB !important;
+}
+body.theme-peach .washi-tape-blue {
+  background: repeating-linear-gradient(45deg, #fed7aa, #fed7aa 8px, #ffedd5 8px, #ffedd5 16px) !important;
+}
+body.theme-peach .washi-tape-pink {
+  background: repeating-linear-gradient(-45deg, #fde68a, #fde68a 8px, #fef3c7 8px, #fef3c7 16px) !important;
+}
+
+/* 5. Theme Midnight Stars (Dark Aesthetic) */
+body.theme-midnight {
+  background-color: #0B1120 !important;
+  background-image: 
+    linear-gradient(rgba(56, 189, 248, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1.5px, transparent 1.5px),
+    radial-gradient(at 8% 12%, rgba(30, 41, 59, 0.9) 0px, transparent 40%),
+    radial-gradient(at 92% 10%, rgba(30, 58, 138, 0.6) 0px, transparent 40%),
+    radial-gradient(at 85% 85%, rgba(55, 48, 163, 0.5) 0px, transparent 45%),
+    radial-gradient(at 12% 88%, rgba(15, 23, 42, 0.95) 0px, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(11, 17, 32, 0.98) 0px, transparent 100%) !important;
+  color: #CBD5E1 !important;
+}
+body.theme-midnight h1, body.theme-midnight h2, body.theme-midnight h3 {
+  color: #38BDF8 !important;
+}
+body.theme-midnight .profile-card > div {
+  background-color: rgba(15, 23, 42, 0.92) !important;
+  border-color: #1E3A8A !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+}
+body.theme-midnight .bg-amber-50\/70, body.theme-midnight .bg-pink-50\/50, body.theme-midnight .bg-white\/60 {
+  background-color: rgba(30, 41, 59, 0.75) !important;
+  border-color: #334155 !important;
+  color: #CBD5E1 !important;
+}
+body.theme-midnight .bg-white\/80, body.theme-midnight .bg-white\/70, body.theme-midnight .bg-white\/90 {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border-color: #1E293B !important;
+  color: #E2E8F0 !important;
+}
+body.theme-midnight .active-tab {
+  background-color: #38BDF8 !important;
+  color: #0B1120 !important;
+}
+body.theme-midnight .washi-tape-blue {
+  background: repeating-linear-gradient(45deg, #1e3a8a, #1e3a8a 8px, #172554 8px, #172554 16px) !important;
+}
+body.theme-midnight .washi-tape-pink {
+  background: repeating-linear-gradient(-45deg, #3730a3, #3730a3 8px, #1e1b4b 8px, #1e1b4b 16px) !important;
+}
+body.theme-midnight #themeDropdownMenu {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-color: #1E3A8A !important;
+}
+body.theme-midnight #themeDropdownMenu p {
+  color: #E2E8F0 !important;
+}
+body.theme-midnight #themeDropdownMenu span {
+  color: #94A3B8 !important;
 }
 
 /* Floating cloud gentle sway animation */

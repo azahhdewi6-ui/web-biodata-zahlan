@@ -350,13 +350,54 @@ window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 const cuteTypes = ['star', 'heart', 'flower', 'sparkle', 'bubble'];
-const cutePastelColors = [
-  'rgba(186, 215, 248,', // soft baby blue
-  'rgba(251, 207, 232,', // soft pastel pink
-  'rgba(254, 240, 138,', // warm pastel butter yellow
-  'rgba(221, 214, 254,', // soft lavender
-  'rgba(254, 215, 170,'  // soft pastel peach
-];
+
+// Palet warna partikel untuk setiap tema
+const themeParticlePalettes = {
+  wave: [
+    'rgba(186, 215, 248,',
+    'rgba(251, 207, 232,',
+    'rgba(254, 240, 138,',
+    'rgba(221, 214, 254,',
+    'rgba(254, 215, 170,'
+  ],
+  strawberry: [
+    'rgba(251, 113, 133,',
+    'rgba(244, 63, 94,',
+    'rgba(254, 205, 211,',
+    'rgba(253, 164, 175,',
+    'rgba(254, 240, 138,'
+  ],
+  matcha: [
+    'rgba(74, 222, 128,',
+    'rgba(134, 239, 172,',
+    'rgba(187, 247, 208,',
+    'rgba(254, 240, 138,',
+    'rgba(202, 138, 4,'
+  ],
+  lavender: [
+    'rgba(192, 132, 252,',
+    'rgba(216, 180, 254,',
+    'rgba(167, 139, 250,',
+    'rgba(244, 114, 182,',
+    'rgba(186, 230, 253,'
+  ],
+  peach: [
+    'rgba(251, 146, 60,',
+    'rgba(245, 158, 11,',
+    'rgba(253, 186, 116,',
+    'rgba(254, 240, 138,',
+    'rgba(244, 63, 94,'
+  ],
+  midnight: [
+    'rgba(56, 189, 248,',
+    'rgba(129, 140, 248,',
+    'rgba(192, 132, 252,',
+    'rgba(254, 240, 138,',
+    'rgba(255, 255, 255,'
+  ]
+};
+
+let currentTheme = 'wave';
 
 class CuteParticle {
   constructor() {
@@ -375,7 +416,8 @@ class CuteParticle {
     this.rotSpeed = (Math.random() - 0.5) * 0.015;
     this.opacity = Math.random() * 0.45 + 0.3;
     this.type = cuteTypes[Math.floor(Math.random() * cuteTypes.length)];
-    this.colorBase = cutePastelColors[Math.floor(Math.random() * cutePastelColors.length)];
+    const pal = themeParticlePalettes[currentTheme] || themeParticlePalettes.wave;
+    this.colorBase = pal[Math.floor(Math.random() * pal.length)];
   }
 
   update() {
@@ -616,4 +658,95 @@ function handleCustomMusic(e) {
   } catch (err) {
     console.error('Failed to load local audio:', err);
   }
+}
+
+// ===================================================
+// Multiple Aesthetic Theme Management
+// ===================================================
+const themeMetadata = {
+  wave: { name: 'Wave to Earth', icon: '🌊', badge: 'Wave To Earth Palette' },
+  strawberry: { name: 'Strawberry Milk', icon: '🍓', badge: 'Strawberry Milk Palette' },
+  matcha: { name: 'Matcha Latte', icon: '🍵', badge: 'Matcha Latte Palette' },
+  lavender: { name: 'Lavender Dream', icon: '🫐', badge: 'Lavender Dream Palette' },
+  peach: { name: 'Sunset Peach', icon: '🌻', badge: 'Sunset Peach Palette' },
+  midnight: { name: 'Midnight Stars', icon: '🌙', badge: 'Midnight Stars Palette' }
+};
+
+function applyTheme(themeId) {
+  if (!themeMetadata[themeId]) themeId = 'wave';
+  currentTheme = themeId;
+
+  // Remove existing theme classes from body
+  document.body.classList.remove(
+    'theme-wave', 'theme-strawberry', 'theme-matcha',
+    'theme-lavender', 'theme-peach', 'theme-midnight'
+  );
+
+  // Add new theme class
+  document.body.classList.add(`theme-${themeId}`);
+
+  // Update header button label and icon
+  const info = themeMetadata[themeId];
+  const headerIcon = document.getElementById('headerThemeIcon');
+  const headerText = document.getElementById('headerThemeText');
+  if (headerIcon) headerIcon.innerText = info.icon;
+  if (headerText) headerText.innerText = info.name;
+
+  // Update checkmarks in dropdown
+  const themeBtns = document.querySelectorAll('.theme-option-btn');
+  themeBtns.forEach(btn => {
+    const tid = btn.getAttribute('data-theme-id');
+    const check = btn.querySelector('.theme-check-icon');
+    if (check) {
+      if (tid === themeId) {
+        check.classList.remove('hidden');
+      } else {
+        check.classList.add('hidden');
+      }
+    }
+  });
+
+  // Update particle colors immediately
+  if (particles && themeParticlePalettes[themeId]) {
+    particles.forEach(p => {
+      p.colorBase = themeParticlePalettes[themeId][Math.floor(Math.random() * themeParticlePalettes[themeId].length)];
+    });
+  }
+
+  // Save to localStorage
+  try {
+    localStorage.setItem('zahlan_selected_theme', themeId);
+  } catch (e) {}
+
+  // Close dropdown if open
+  closeThemeDropdown();
+}
+
+function toggleThemeDropdown(event) {
+  if (event) event.stopPropagation();
+  const dropdown = document.getElementById('themeDropdownMenu');
+  if (dropdown) {
+    dropdown.classList.toggle('hidden');
+  }
+}
+
+function closeThemeDropdown() {
+  const dropdown = document.getElementById('themeDropdownMenu');
+  if (dropdown) dropdown.classList.add('hidden');
+}
+
+// Close dropdown when clicking outside
+window.addEventListener('click', (e) => {
+  const container = document.getElementById('themeSelectorContainer');
+  if (container && !container.contains(e.target)) {
+    closeThemeDropdown();
+  }
+});
+
+// Load saved theme on startup
+try {
+  const savedTheme = localStorage.getItem('zahlan_selected_theme') || 'wave';
+  applyTheme(savedTheme);
+} catch (e) {
+  applyTheme('wave');
 }
